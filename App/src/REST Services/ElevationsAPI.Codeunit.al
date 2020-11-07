@@ -4,7 +4,4 @@ codeunit 50003 "jdi BingMaps Elevations API"
     begin
 
     end;
-
-    var
-        myInt: Integer;
 }

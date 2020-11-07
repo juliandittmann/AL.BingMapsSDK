@@ -4,7 +4,4 @@ codeunit 50004 "jdi BingMaps Imagery API"
     begin
 
     end;
-
-    var
-        myInt: Integer;
 }

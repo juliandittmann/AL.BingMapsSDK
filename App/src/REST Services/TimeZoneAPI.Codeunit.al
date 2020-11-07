@@ -4,7 +4,4 @@ codeunit 50007 "jdi BingMaps Time Zone API"
     begin
 
     end;
-
-    var
-        myInt: Integer;
 }

@@ -4,7 +4,4 @@ codeunit 50002 "jdi BingMaps Locations API"
     begin
 
     end;
-
-    var
-        myInt: Integer;
 }

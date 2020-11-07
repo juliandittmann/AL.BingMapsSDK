@@ -4,7 +4,4 @@ codeunit 50005 "jdi BingMaps Routes API"
     begin
 
     end;
-
-    var
-        myInt: Integer;
 }

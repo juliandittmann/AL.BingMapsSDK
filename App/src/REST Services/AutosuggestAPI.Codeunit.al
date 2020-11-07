@@ -4,7 +4,4 @@ codeunit 50008 "jdi BingMaps Autosuggest API"
     begin
 
     end;
-
-    var
-        myInt: Integer;
 }
