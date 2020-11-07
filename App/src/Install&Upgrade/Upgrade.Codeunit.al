@@ -1,4 +1,4 @@
-codeunit 50001 "jdi Bing Upgrade"
+codeunit 50001 "jdi BingMaps Upgrade"
 {
     Subtype = Upgrade;
 

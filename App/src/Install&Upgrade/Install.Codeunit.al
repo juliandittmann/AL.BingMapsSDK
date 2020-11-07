@@ -1,4 +1,4 @@
-codeunit 50000 "jdi Bing Install"
+codeunit 50000 "jdi BingMaps Install"
 {
     Subtype = Install;
 
