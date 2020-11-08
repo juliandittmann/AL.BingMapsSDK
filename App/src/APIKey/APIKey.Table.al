@@ -1,6 +1,6 @@
 table 50001 "jdi BingMaps API Key"
 {
-    DataClassification = SystemMetadata;
+    DataClassification = AccountData;
     LookupPageId = "jdi BingMaps API Key List";
     Access = Internal;
 
