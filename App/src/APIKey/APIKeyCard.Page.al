@@ -4,7 +4,7 @@ page 50002 "jdi BingMaps API Key Card"
     UsageCategory = None;
     SourceTable = "jdi BingMaps API Key";
 
-    Caption = 'Bing Maps API Key Card';
+    Caption = 'Bing Maps SDK API Key Card';
 
     layout
     {
