@@ -30,27 +30,25 @@ page 50000 "jdi BingMaps TestPage"
                     TimezoneAPI: Codeunit "jdi BingMaps Time Zone API";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
+                    HttpResponse: HttpResponseMessage;
+
+                    Param: Dictionary of [Enum "jdi BingMaps FindTimeZone Parameter", Text];
+                    FindTimeZoneParam: Enum "jdi BingMaps FindTimeZone Parameter";
                 begin
-                    Clear(JResponse);
-                    TimezoneAPI.FindTimeZoneByPoint('47,-122', JResponse);
-                    Clear(JResponse);
-                    TimezoneAPI.FindTimeZoneByPoint('47,-122', '2018-05-15T13:14:15Z', JResponse);
+                    //Param.Add(FindTimeZoneParam::point, '47,-122'); //TODO: point Paramenter Problem
+                    //TimezoneAPI.FindTimeZone(Param, JResponse);
 
-                    Clear(XmlResponse);
-                    TimezoneAPI.FindTimeZoneByPoint('47,-122', XmlResponse);
-                    Clear(XmlResponse);
-                    TimezoneAPI.FindTimeZoneByPoint('47,-122', '2018-05-15T13:14:15Z', XmlResponse);
+                    Clear(Param);
+                    Param.Add(FindTimeZoneParam::query, 'bellevue,wa,us');
+                    TimezoneAPI.FindTimeZone(Param, JResponse);
 
+                    Clear(Param);
+                    Param.Add(FindTimeZoneParam::query, 'bellevue,wa,us');
+                    TimezoneAPI.FindTimeZone(Param, XmlResponse);
 
-                    Clear(JResponse);
-                    TimezoneAPI.FindTimeZoneByQuery('bellevue,wa,us', JResponse);
-                    Clear(JResponse);
-                    TimezoneAPI.FindTimeZoneByQuery('bellevue,wa,us', '2018-05-15T13:14:15Z', JResponse);
-
-                    Clear(XmlResponse);
-                    TimezoneAPI.FindTimeZoneByQuery('bellevue,wa,us', XmlResponse);
-                    Clear(XmlResponse);
-                    TimezoneAPI.FindTimeZoneByQuery('bellevue,wa,us', '2018-05-15T13:14:15Z', XmlResponse);
+                    Clear(Param);
+                    Param.Add(FindTimeZoneParam::query, 'bellevue,wa,us');
+                    TimezoneAPI.FindTimeZone(Param, HttpResponse);
                 end;
             }
         }
