@@ -2,6 +2,9 @@ page 50003 "jdi BingMaps Setup Card"
 {
     PageType = Card;
     ApplicationArea = All;
+
+    Caption = 'Bing Maps SDK Setup';
+
     UsageCategory = Administration;
     SourceTable = "jdi BingMaps Setup";
 
