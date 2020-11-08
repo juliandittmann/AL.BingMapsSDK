@@ -4,6 +4,8 @@ page 50001 "jdi BingMaps API Key List"
     ApplicationArea = All;
     UsageCategory = Administration;
 
+    Caption = 'Bing Maps SDK API Key List';
+
     CardPageId = "jdi BingMaps API Key Card";
     SourceTable = "jdi BingMaps API Key";
     Editable = false;
