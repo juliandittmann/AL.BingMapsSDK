@@ -1,6 +1,7 @@
 table 50000 "jdi BingMaps Setup"
 {
-    DataClassification = ToBeClassified;
+    DataClassification = SystemMetadata;
+    Access = Internal;
 
     fields
     {
@@ -9,7 +10,6 @@ table 50000 "jdi BingMaps Setup"
             Caption = 'Primary Key';
             DataClassification = CustomerContent;
         }
-
 
         field(2; "API Version"; Enum "jdi BingMaps API Version")
         {
@@ -21,7 +21,7 @@ table 50000 "jdi BingMaps Setup"
         {
             Caption = 'Default API Key';
             DataClassification = CustomerContent;
-
+            TableRelation = "jdi BingMaps API Key";
         }
 
         field(40; "Enable Webservice Calls"; Boolean)
@@ -51,25 +51,12 @@ table 50000 "jdi BingMaps Setup"
         }
     }
 
-
-    trigger OnInsert()
+    [NonDebuggable]
+    procedure GetDefaultAPIKey(): Text
+    var
+        APIKey: Record "jdi BingMaps API Key";
     begin
-
+        if APIKey.Get("Default API Key") then
+            exit(APIKey.GetAPIKey());
     end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
-
 }
