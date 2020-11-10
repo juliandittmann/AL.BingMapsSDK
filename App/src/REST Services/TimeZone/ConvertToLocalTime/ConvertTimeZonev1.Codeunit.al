@@ -2,6 +2,7 @@ codeunit 50012 "jdi BingMaps ConvertTimeZonev1" implements "jdi BingMaps IConver
 {
     procedure ConvertTimeZone(Parameter: Dictionary of [enum "jdi BingMaps ConvertTimeZone Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
+        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
         Uri: Codeunit Uri;
 
@@ -10,19 +11,21 @@ codeunit 50012 "jdi BingMaps ConvertTimeZonev1" implements "jdi BingMaps IConver
         UriBuilder.Init(BaseUriLbl);
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
-        exit(InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
+        exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
     end;
 
     procedure ConvertTimeZone(Parameter: Dictionary of [enum "jdi BingMaps ConvertTimeZone Parameter", Text]; var JsonResponse: JsonObject): Boolean;
     var
+        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
     begin
         ConvertTimeZone(Parameter, HttpResponse);
-        exit(ProcessHttpResponseMessage(HttpResponse, JsonResponse));
+        exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
     procedure ConvertTimeZone(Parameter: Dictionary of [enum "jdi BingMaps ConvertTimeZone Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
     var
+        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
         ConvertTimeZoneParameter: Enum "jdi BingMaps ConvertTimeZone Parameter";
     begin
@@ -30,18 +33,19 @@ codeunit 50012 "jdi BingMaps ConvertTimeZonev1" implements "jdi BingMaps IConver
             Parameter.Add(ConvertTimeZoneParameter::output, 'xml');
 
         ConvertTimeZone(Parameter, HttpResponse);
-        exit(ProcessHttpResponseMessage(HttpResponse, XmlResponse));
+        exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, XmlResponse));
     end;
 
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps ConvertTimeZone Parameter", Text]): Text
     var
+        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps ConvertTimeZone Parameter"];
         ConvertTimeZoneParameter: Enum "jdi BingMaps ConvertTimeZone Parameter";
         TxtBuilder: TextBuilder;
     begin
         if not Parameter.ContainsKey(ConvertTimeZoneParameter::"key") then
-            Parameter.Add(ConvertTimeZoneParameter::"key", GetDefaultAPIKey());
+            Parameter.Add(ConvertTimeZoneParameter::"key", RESTHelper.GetDefaultAPIKey());
 
         ParamKeys := Parameter.Keys;
         foreach ConvertTimeZoneParameter in ParamKeys do
@@ -58,44 +62,5 @@ codeunit 50012 "jdi BingMaps ConvertTimeZonev1" implements "jdi BingMaps IConver
         OrdinalValue := Parameter.AsInteger();
         Index := Parameter.Ordinals.IndexOf(OrdinalValue);
         exit(Parameter.Names.Get(Index));
-    end;
-
-    local procedure InvokeWebRequest(Url: Text; var Response: HttpResponseMessage): Boolean
-    var
-        Client: HttpClient;
-    begin
-        exit(Client.Get(Url, Response));
-    end;
-
-    local procedure ProcessHttpResponseMessage(Response: HttpResponseMessage; var ResponseJObject: JsonObject): Boolean;
-    var
-        Result: Text;
-    begin
-        Clear(ResponseJObject);
-        if (Response.IsSuccessStatusCode()) then begin
-            Response.Content().ReadAs(Result);
-            exit(ResponseJObject.ReadFrom(Result));
-        end;
-    end;
-
-    local procedure ProcessHttpResponseMessage(Response: HttpResponseMessage; var ResponseXml: XmlDocument): Boolean;
-    var
-        InStr: InStream;
-    begin
-        Clear(ResponseXml);
-        if (Response.IsSuccessStatusCode()) then begin
-            Response.Content().ReadAs(InStr);
-
-            exit(XmlDocument.ReadFrom(InStr, ResponseXml));
-        end;
-    end;
-
-
-    local procedure GetDefaultAPIKey(): Text
-    var
-        BingMapsSetup: Record "jdi BingMaps Setup";
-    begin
-        if BingMapsSetup.Get() then
-            exit(BingMapsSetup.GetDefaultAPIKey());
     end;
 }
