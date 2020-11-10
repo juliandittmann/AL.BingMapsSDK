@@ -35,20 +35,27 @@ page 50000 "jdi BingMaps TestPage"
                     Param: Dictionary of [Enum "jdi BingMaps FindTimeZone Parameter", Text];
                     FindTimeZoneParam: Enum "jdi BingMaps FindTimeZone Parameter";
                 begin
-                    //Param.Add(FindTimeZoneParam::point, '47,-122'); //TODO: point Paramenter Problem
-                    //TimezoneAPI.FindTimeZone(Param, JResponse);
 
+
+                    Clear(Param);
+                    Param.Add(FindTimeZoneParam::point, '47,-122');
+                    TimezoneAPI.FindTimeZone(Param, JResponse);
+                    TimezoneAPI.FindTimeZone(Param, XmlResponse);
+                    TimezoneAPI.FindTimeZone(Param, HttpResponse);
+
+
+                    Clear(JResponse);
+                    Clear(XmlResponse);
+                    Clear(HttpResponse);
                     Clear(Param);
                     Param.Add(FindTimeZoneParam::query, 'bellevue,wa,us');
                     TimezoneAPI.FindTimeZone(Param, JResponse);
 
-                    Clear(Param);
-                    Param.Add(FindTimeZoneParam::query, 'bellevue,wa,us');
                     TimezoneAPI.FindTimeZone(Param, XmlResponse);
 
-                    Clear(Param);
-                    Param.Add(FindTimeZoneParam::query, 'bellevue,wa,us');
                     TimezoneAPI.FindTimeZone(Param, HttpResponse);
+
+
                 end;
             }
         }
