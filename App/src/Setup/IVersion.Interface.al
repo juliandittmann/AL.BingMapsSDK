@@ -5,4 +5,7 @@ interface "jdi BingMaps IVersion"
     procedure ListTimeZones(): Enum "jdi BingMaps ListTimeZones API";
 
 
+    procedure FindLocationByPoint(): Enum "jdi BingMaps FindLocationByPoint API";
+
+
 }
