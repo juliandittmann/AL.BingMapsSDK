@@ -142,6 +142,33 @@ page 50000 "jdi BingMaps TestPage"
                     TimezoneAPI.ListTimeZones(Param, HttpResponse);
                 end;
             }
+
+
+            action(TestFindLocationByPoint)
+            {
+                ApplicationArea = All;
+                Image = TestFile;
+                ToolTip = 'TestFindLocationByPoint';
+
+                trigger OnAction()
+                var
+                    LocationsAPI: Codeunit "jdi BingMaps Locations API";
+                    JResponse: JsonObject;
+                    XmlResponse: XmlDocument;
+                    HttpResponse: HttpResponseMessage;
+
+                    Param: Dictionary of [Enum "jdi BingMaps FindLocationByPoint Parameter", Text];
+                    FindLocationByPointParam: Enum "jdi BingMaps FindLocationByPoint Parameter";
+                begin
+                    Clear(Param);
+                    Param.Add(FindLocationByPointParam::point, '47.64054,-122.12934');
+
+                    LocationsAPI.FindLocationByPoint(Param, JResponse);
+                    LocationsAPI.FindLocationByPoint(Param, XmlResponse);
+                    LocationsAPI.FindLocationByPoint(Param, HttpResponse);
+                end;
+            }
+
         }
     }
 }
