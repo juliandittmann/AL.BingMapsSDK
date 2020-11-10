@@ -5,10 +5,8 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
     var
         UriBuilder: Codeunit "Uri Builder";
         Uri: Codeunit Uri;
-
-        BaseUriLbl: Label 'https://dev.virtualearth.net/REST/v1/TimeZone/', Locked = true;
     begin
-        UriBuilder.Init(BaseUriLbl);
+        UriBuilder.Init(BuildBaseUrl(Parameter));
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
         exit(InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
@@ -34,8 +32,6 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
         exit(ProcessHttpResponseMessage(HttpResponse, XmlResponse));
     end;
 
-
-
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]): Text
     var
         ParamKeys: List of [Enum "jdi BingMaps FindTimeZone Parameter"];
@@ -51,7 +47,6 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
 
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
-
 
     local procedure GetEnumName(FindTimeZoneParameter: Enum "jdi BingMaps FindTimeZone Parameter"): Text
     var
@@ -93,7 +88,20 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
         end;
     end;
 
+    local procedure BuildBaseUrl(Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]) BaseUrl: Text
+    var
+        FindTimeZoneParamenter: Enum "jdi BingMaps FindTimeZone Parameter";
 
+        BaseUriLbl: Label 'https://dev.virtualearth.net/REST/v1/TimeZone/', Locked = true;
+        BaseUriPointLbl: Label 'https://dev.virtualearth.net/REST/v1/TimeZone/%1', Locked = true;
+    begin
+        BaseUrl := BaseUriLbl;
+
+        if Parameter.ContainsKey(FindTimeZoneParamenter::point) then begin
+            BaseUrl := StrSubstNo(BaseUriPointLbl, Parameter.Get(FindTimeZoneParamenter::point));
+            Parameter.Remove(FindTimeZoneParamenter::point);
+        end;
+    end;
 
     local procedure GetDefaultAPIKey(): Text
     var
