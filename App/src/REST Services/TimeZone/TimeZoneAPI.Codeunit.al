@@ -84,6 +84,49 @@ codeunit 50007 "jdi BingMaps Time Zone API"
     end;
 
 
+    procedure ListTimeZones(Parameter: Dictionary of [Enum "jdi BingMaps ListTimeZones Parameter", Text]; var JsonResponse: JsonObject): Boolean
+    var
+        IVersion: Interface "jdi BingMaps IVersion";
+        IListTimeZones: Interface "jdi BingMaps IListTimeZones";
+        localParameter: Dictionary of [Enum "jdi BingMaps ListTimeZones Parameter", Text];
+    begin
+        CopyParameter(Parameter, localParameter);
+
+        GetIVersion(IVersion);
+        IListTimeZones := IVersion.ListTimeZones();
+        IListTimeZones.ListTimeZones(localParameter, JsonResponse);
+    end;
+
+    procedure ListTimeZones(Parameter: Dictionary of [Enum "jdi BingMaps ListTimeZones Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
+    var
+        IVersion: Interface "jdi BingMaps IVersion";
+        IListTimeZones: Interface "jdi BingMaps IListTimeZones";
+
+        localParameter: Dictionary of [Enum "jdi BingMaps ListTimeZones Parameter", Text];
+    begin
+        CopyParameter(Parameter, localParameter);
+
+        GetIVersion(IVersion);
+        IListTimeZones := IVersion.ListTimeZones();
+        IListTimeZones.ListTimeZones(localParameter, HttpResponse);
+    end;
+
+    procedure ListTimeZones(Parameter: Dictionary of [Enum "jdi BingMaps ListTimeZones Parameter", Text]; var XmlResponse: XmlDocument): Boolean
+    var
+        IVersion: Interface "jdi BingMaps IVersion";
+        IListTimeZones: Interface "jdi BingMaps IListTimeZones";
+
+        localParameter: Dictionary of [Enum "jdi BingMaps ListTimeZones Parameter", Text];
+    begin
+        CopyParameter(Parameter, localParameter);
+
+        GetIVersion(IVersion);
+        IListTimeZones := IVersion.ListTimeZones();
+        IListTimeZones.ListTimeZones(localParameter, XmlResponse);
+    end;
+
+
+
     local procedure GetIVersion(var IVersion: Interface "jdi BingMaps IVersion")
     var
         BingMapsSDKSetup: Record "jdi BingMaps Setup";
@@ -109,6 +152,18 @@ codeunit 50007 "jdi BingMaps Time Zone API"
     var
         ParamKeys: List of [Enum "jdi BingMaps ConvertTimeZone Parameter"];
         ConvertTimeZoneParameter: Enum "jdi BingMaps ConvertTimeZone Parameter";
+    begin
+        Clear(ParameterCopy);
+        ParamKeys := Parameter.Keys;
+        foreach ConvertTimeZoneParameter in ParamKeys do
+            ParameterCopy.Add(ConvertTimeZoneParameter, Parameter.Get(ConvertTimeZoneParameter));
+    end;
+
+
+    local procedure CopyParameter(Parameter: Dictionary of [enum "jdi BingMaps ListTimeZones Parameter", Text]; var ParameterCopy: Dictionary of [enum "jdi BingMaps ListTimeZones Parameter", Text]);
+    var
+        ParamKeys: List of [Enum "jdi BingMaps ListTimeZones Parameter"];
+        ConvertTimeZoneParameter: Enum "jdi BingMaps ListTimeZones Parameter";
     begin
         Clear(ParameterCopy);
         ParamKeys := Parameter.Keys;

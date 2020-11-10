@@ -9,4 +9,9 @@ codeunit 50010 "jdi BingMaps API v1" implements "jdi BingMaps IVersion"
     begin
         exit(Enum::"jdi BingMaps ConvertTimeZone API"::v1);
     end;
+
+    procedure ListTimeZones(): enum "jdi BingMaps ListTimeZones API";
+    begin
+        exit(Enum::"jdi BingMaps ListTimeZones API"::v1);
+    end;
 }
