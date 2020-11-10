@@ -127,14 +127,6 @@ codeunit 50007 "jdi BingMaps Time Zone API"
 
 
 
-    local procedure GetIVersion(var IVersion: Interface "jdi BingMaps IVersion")
-    var
-        BingMapsSDKSetup: Record "jdi BingMaps Setup";
-    begin
-        BingMapsSDKSetup.Get();
-        IVersion := BingMapsSDKSetup."API Version";
-    end;
-
 
     local procedure CopyParameter(Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]; var ParameterCopy: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]);
     var
@@ -170,4 +162,14 @@ codeunit 50007 "jdi BingMaps Time Zone API"
         foreach ConvertTimeZoneParameter in ParamKeys do
             ParameterCopy.Add(ConvertTimeZoneParameter, Parameter.Get(ConvertTimeZoneParameter));
     end;
+
+
+    local procedure GetIVersion(var IVersion: Interface "jdi BingMaps IVersion") //TODO: Does not belong here
+    var
+        BingMapsSDKSetup: Record "jdi BingMaps Setup";
+    begin
+        BingMapsSDKSetup.Get();
+        IVersion := BingMapsSDKSetup."API Version";
+    end;
+
 }
