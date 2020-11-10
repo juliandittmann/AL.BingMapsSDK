@@ -104,6 +104,44 @@ page 50000 "jdi BingMaps TestPage"
 
                 end;
             }
+
+            action(TestListTimeZones)
+            {
+                ApplicationArea = All;
+                Image = TestFile;
+                ToolTip = 'TestConvertTimeZone';
+
+                trigger OnAction()
+                var
+                    TimezoneAPI: Codeunit "jdi BingMaps Time Zone API";
+                    JResponse: JsonObject;
+                    XmlResponse: XmlDocument;
+                    HttpResponse: HttpResponseMessage;
+
+                    Param: Dictionary of [Enum "jdi BingMaps ListTimeZones Parameter", Text];
+                    ListTimeZoneParam: Enum "jdi BingMaps ListTimeZones Parameter";
+                begin
+                    Clear(Param);
+                    Param.Add(ListTimeZoneParam::timezonestandard, 'Windows');
+
+                    TimezoneAPI.ListTimeZones(Param, JResponse);
+                    TimezoneAPI.ListTimeZones(Param, XmlResponse);
+                    TimezoneAPI.ListTimeZones(Param, HttpResponse);
+
+
+                    Clear(JResponse);
+                    Clear(XmlResponse);
+                    Clear(HttpResponse);
+                    Clear(Param);
+
+                    Param.Add(ListTimeZoneParam::desttz, 'America/Los_Angeles');
+                    Param.Add(ListTimeZoneParam::includeDstRules, 'true');
+
+                    TimezoneAPI.ListTimeZones(Param, JResponse);
+                    TimezoneAPI.ListTimeZones(Param, XmlResponse);
+                    TimezoneAPI.ListTimeZones(Param, HttpResponse);
+                end;
+            }
         }
     }
 }
