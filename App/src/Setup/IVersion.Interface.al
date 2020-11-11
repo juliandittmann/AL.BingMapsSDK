@@ -8,5 +8,5 @@ interface "jdi BingMaps IVersion"
     procedure FindLocationByPoint(): Enum "jdi BingMaps FindLocationByPoint API";
     procedure FindLocationByQuery(): Enum "jdi BingMaps FindLocationByQuery API";
     procedure LocationRecognition(): Enum "jdi BingMaps LocationRecognition API";
-
+    procedure LocalSearch(): Enum "jdi BingMaps LocalSearch API";
 }

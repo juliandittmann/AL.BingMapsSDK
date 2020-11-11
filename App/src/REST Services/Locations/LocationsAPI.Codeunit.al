@@ -43,6 +43,27 @@ codeunit 50002 "jdi BingMaps Locations API"
         IFindLocationByPoint.FindLocationByPoint(localParameter, XmlResponse);
     end;
 
+    local procedure CopyParameter(Parameter: Dictionary of [enum "jdi BingMaps FindLocationByPoint Parameter", Text]; var ParameterCopy: Dictionary of [enum "jdi BingMaps FindLocationByPoint Parameter", Text]);
+    var
+        ParamKeys: List of [Enum "jdi BingMaps FindLocationByPoint Parameter"];
+        FindLocationByPointParameter: Enum "jdi BingMaps FindLocationByPoint Parameter";
+    begin
+        Clear(ParameterCopy);
+        ParamKeys := Parameter.Keys;
+        foreach FindLocationByPointParameter in ParamKeys do
+            ParameterCopy.Add(FindLocationByPointParameter, Parameter.Get(FindLocationByPointParameter));
+    end;
+
+
+
+
+
+
+
+
+
+
+
     procedure FindLocationByQuery(Parameter: Dictionary of [Enum "jdi BingMaps FindLocationByQuery Parameter", Text]; var JsonResponse: JsonObject): Boolean
     var
         IVersion: Interface "jdi BingMaps IVersion";
@@ -83,6 +104,21 @@ codeunit 50002 "jdi BingMaps Locations API"
         IFindLocationByQuery := IVersion.FindLocationByQuery();
         IFindLocationByQuery.FindLocationByQuery(localParameter, XmlResponse);
     end;
+
+    local procedure CopyParameter(Parameter: Dictionary of [enum "jdi BingMaps FindLocationByQuery Parameter", Text]; var ParameterCopy: Dictionary of [enum "jdi BingMaps FindLocationByQuery Parameter", Text]);
+    var
+        ParamKeys: List of [Enum "jdi BingMaps FindLocationByQuery Parameter"];
+        FindLocationByPointParameter: Enum "jdi BingMaps FindLocationByQuery Parameter";
+    begin
+        Clear(ParameterCopy);
+        ParamKeys := Parameter.Keys;
+        foreach FindLocationByPointParameter in ParamKeys do
+            ParameterCopy.Add(FindLocationByPointParameter, Parameter.Get(FindLocationByPointParameter));
+    end;
+
+
+
+
 
 
 
@@ -130,9 +166,6 @@ codeunit 50002 "jdi BingMaps Locations API"
         ILocationRecognition.LocationRecognition(localParameter, XmlResponse);
     end;
 
-
-
-
     local procedure CopyParameter(Parameter: Dictionary of [enum "jdi BingMaps LocationRecognition Parameter", Text]; var ParameterCopy: Dictionary of [enum "jdi BingMaps LocationRecognition Parameter", Text]);
     var
         ParamKeys: List of [Enum "jdi BingMaps LocationRecognition Parameter"];
@@ -145,26 +178,65 @@ codeunit 50002 "jdi BingMaps Locations API"
     end;
 
 
-    local procedure CopyParameter(Parameter: Dictionary of [enum "jdi BingMaps FindLocationByQuery Parameter", Text]; var ParameterCopy: Dictionary of [enum "jdi BingMaps FindLocationByQuery Parameter", Text]);
+
+
+
+
+
+
+
+
+
+    procedure LocalSearch(Parameter: Dictionary of [Enum "jdi BingMaps LocalSearch Parameter", Text]; var JsonResponse: JsonObject): Boolean
     var
-        ParamKeys: List of [Enum "jdi BingMaps FindLocationByQuery Parameter"];
-        FindLocationByPointParameter: Enum "jdi BingMaps FindLocationByQuery Parameter";
+        IVersion: Interface "jdi BingMaps IVersion";
+        ILocalSearch: Interface "jdi BingMaps ILocalSearch";
+        localParameter: Dictionary of [Enum "jdi BingMaps LocalSearch Parameter", Text];
     begin
-        Clear(ParameterCopy);
-        ParamKeys := Parameter.Keys;
-        foreach FindLocationByPointParameter in ParamKeys do
-            ParameterCopy.Add(FindLocationByPointParameter, Parameter.Get(FindLocationByPointParameter));
+        CopyParameter(Parameter, localParameter);
+
+        GetIVersion(IVersion);
+        ILocalSearch := IVersion.LocalSearch();
+        ILocalSearch.LocalSearch(localParameter, JsonResponse);
     end;
 
-    local procedure CopyParameter(Parameter: Dictionary of [enum "jdi BingMaps FindLocationByPoint Parameter", Text]; var ParameterCopy: Dictionary of [enum "jdi BingMaps FindLocationByPoint Parameter", Text]);
+    procedure LocalSearch(Parameter: Dictionary of [Enum "jdi BingMaps LocalSearch Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
     var
-        ParamKeys: List of [Enum "jdi BingMaps FindLocationByPoint Parameter"];
-        FindLocationByPointParameter: Enum "jdi BingMaps FindLocationByPoint Parameter";
+        IVersion: Interface "jdi BingMaps IVersion";
+        ILocalSearch: Interface "jdi BingMaps ILocalSearch";
+
+        localParameter: Dictionary of [Enum "jdi BingMaps LocalSearch Parameter", Text];
+    begin
+        CopyParameter(Parameter, localParameter);
+
+        GetIVersion(IVersion);
+        ILocalSearch := IVersion.LocalSearch();
+        ILocalSearch.LocalSearch(localParameter, HttpResponse);
+    end;
+
+    procedure LocalSearch(Parameter: Dictionary of [Enum "jdi BingMaps LocalSearch Parameter", Text]; var XmlResponse: XmlDocument): Boolean
+    var
+        IVersion: Interface "jdi BingMaps IVersion";
+        ILocalSearch: Interface "jdi BingMaps ILocalSearch";
+
+        localParameter: Dictionary of [Enum "jdi BingMaps LocalSearch Parameter", Text];
+    begin
+        CopyParameter(Parameter, localParameter);
+
+        GetIVersion(IVersion);
+        ILocalSearch := IVersion.LocalSearch();
+        ILocalSearch.LocalSearch(localParameter, XmlResponse);
+    end;
+
+    local procedure CopyParameter(Parameter: Dictionary of [enum "jdi BingMaps LocalSearch Parameter", Text]; var ParameterCopy: Dictionary of [enum "jdi BingMaps LocalSearch Parameter", Text]);
+    var
+        ParamKeys: List of [Enum "jdi BingMaps LocalSearch Parameter"];
+        LocalSearchParameter: Enum "jdi BingMaps LocalSearch Parameter";
     begin
         Clear(ParameterCopy);
         ParamKeys := Parameter.Keys;
-        foreach FindLocationByPointParameter in ParamKeys do
-            ParameterCopy.Add(FindLocationByPointParameter, Parameter.Get(FindLocationByPointParameter));
+        foreach LocalSearchParameter in ParamKeys do
+            ParameterCopy.Add(LocalSearchParameter, Parameter.Get(LocalSearchParameter));
     end;
 
 

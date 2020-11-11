@@ -31,4 +31,9 @@ codeunit 50010 "jdi BingMaps API v1" implements "jdi BingMaps IVersion"
     begin
         exit(Enum::"jdi BingMaps LocationRecognition API"::v1);
     end;
+
+    procedure LocalSearch(): enum "jdi BingMaps LocalSearch API";
+    begin
+        exit(Enum::"jdi BingMaps LocalSearch API"::v1);
+    end;
 }
