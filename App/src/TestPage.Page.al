@@ -169,6 +169,33 @@ page 50000 "jdi BingMaps TestPage"
                 end;
             }
 
+
+            action(TestFindLocationByQuery)
+            {
+                ApplicationArea = All;
+                Image = TestFile;
+                ToolTip = 'TestFindLocationByQuery';
+
+                trigger OnAction()
+                var
+                    LocationsAPI: Codeunit "jdi BingMaps Locations API";
+                    JResponse: JsonObject;
+                    XmlResponse: XmlDocument;
+                    HttpResponse: HttpResponseMessage;
+
+                    Param: Dictionary of [Enum "jdi BingMaps FindLocationByQuery Parameter", Text];
+                    FindLocationByQueryParam: Enum "jdi BingMaps FindLocationByQuery Parameter";
+                begin
+                    Clear(Param);
+                    Param.Add(FindLocationByQueryParam::query, 'White House');
+
+                    LocationsAPI.FindLocationByQuery(Param, JResponse);
+                    LocationsAPI.FindLocationByQuery(Param, XmlResponse);
+                    LocationsAPI.FindLocationByQuery(Param, HttpResponse);
+                end;
+            }
+
+
         }
     }
 }
