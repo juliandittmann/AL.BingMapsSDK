@@ -21,4 +21,9 @@ codeunit 50010 "jdi BingMaps API v1" implements "jdi BingMaps IVersion"
     begin
         exit(Enum::"jdi BingMaps FindLocationByPoint API"::v1);
     end;
+
+    procedure FindLocationByQuery(): enum "jdi BingMaps FindLocationByQuery API";
+    begin
+        exit(Enum::"jdi BingMaps FindLocationByQuery API"::v1);
+    end;
 }
