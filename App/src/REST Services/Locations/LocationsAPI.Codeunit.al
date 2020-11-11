@@ -85,6 +85,66 @@ codeunit 50002 "jdi BingMaps Locations API"
     end;
 
 
+
+
+
+
+    procedure LocationRecognition(Parameter: Dictionary of [Enum "jdi BingMaps LocationRecognition Parameter", Text]; var JsonResponse: JsonObject): Boolean
+    var
+        IVersion: Interface "jdi BingMaps IVersion";
+        ILocationRecognition: Interface "jdi BingMaps ILocationRecognition";
+        localParameter: Dictionary of [Enum "jdi BingMaps LocationRecognition Parameter", Text];
+    begin
+        CopyParameter(Parameter, localParameter);
+
+        GetIVersion(IVersion);
+        ILocationRecognition := IVersion.LocationRecognition();
+        ILocationRecognition.LocationRecognition(localParameter, JsonResponse);
+    end;
+
+    procedure LocationRecognition(Parameter: Dictionary of [Enum "jdi BingMaps LocationRecognition Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
+    var
+        IVersion: Interface "jdi BingMaps IVersion";
+        ILocationRecognition: Interface "jdi BingMaps ILocationRecognition";
+
+        localParameter: Dictionary of [Enum "jdi BingMaps LocationRecognition Parameter", Text];
+    begin
+        CopyParameter(Parameter, localParameter);
+
+        GetIVersion(IVersion);
+        ILocationRecognition := IVersion.LocationRecognition();
+        ILocationRecognition.LocationRecognition(localParameter, HttpResponse);
+    end;
+
+    procedure LocationRecognition(Parameter: Dictionary of [Enum "jdi BingMaps LocationRecognition Parameter", Text]; var XmlResponse: XmlDocument): Boolean
+    var
+        IVersion: Interface "jdi BingMaps IVersion";
+        ILocationRecognition: Interface "jdi BingMaps ILocationRecognition";
+
+        localParameter: Dictionary of [Enum "jdi BingMaps LocationRecognition Parameter", Text];
+    begin
+        CopyParameter(Parameter, localParameter);
+
+        GetIVersion(IVersion);
+        ILocationRecognition := IVersion.LocationRecognition();
+        ILocationRecognition.LocationRecognition(localParameter, XmlResponse);
+    end;
+
+
+
+
+    local procedure CopyParameter(Parameter: Dictionary of [enum "jdi BingMaps LocationRecognition Parameter", Text]; var ParameterCopy: Dictionary of [enum "jdi BingMaps LocationRecognition Parameter", Text]);
+    var
+        ParamKeys: List of [Enum "jdi BingMaps LocationRecognition Parameter"];
+        LocationRecognitionParameter: Enum "jdi BingMaps LocationRecognition Parameter";
+    begin
+        Clear(ParameterCopy);
+        ParamKeys := Parameter.Keys;
+        foreach LocationRecognitionParameter in ParamKeys do
+            ParameterCopy.Add(LocationRecognitionParameter, Parameter.Get(LocationRecognitionParameter));
+    end;
+
+
     local procedure CopyParameter(Parameter: Dictionary of [enum "jdi BingMaps FindLocationByQuery Parameter", Text]; var ParameterCopy: Dictionary of [enum "jdi BingMaps FindLocationByQuery Parameter", Text]);
     var
         ParamKeys: List of [Enum "jdi BingMaps FindLocationByQuery Parameter"];
