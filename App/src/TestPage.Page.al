@@ -196,6 +196,59 @@ page 50000 "jdi BingMaps TestPage"
             }
 
 
+            action(TestLocationRecognition)
+            {
+                ApplicationArea = All;
+                Image = TestFile;
+                ToolTip = 'TestLocationRecognition';
+
+                trigger OnAction()
+                var
+                    LocationsAPI: Codeunit "jdi BingMaps Locations API";
+                    JResponse: JsonObject;
+                    XmlResponse: XmlDocument;
+                    HttpResponse: HttpResponseMessage;
+
+                    Param: Dictionary of [Enum "jdi BingMaps LocationRecognition Parameter", Text];
+                    LocationRecognitionParam: Enum "jdi BingMaps LocationRecognition Parameter";
+                begin
+                    Clear(Param);
+                    Param.Add(LocationRecognitionParam::point, '47.610679194331169,-122.10788659751415');
+
+                    LocationsAPI.LocationRecognition(Param, JResponse);
+                    LocationsAPI.LocationRecognition(Param, XmlResponse);
+                    LocationsAPI.LocationRecognition(Param, HttpResponse);
+                end;
+            }
+
+            action(TestLocalSearch)
+            {
+                ApplicationArea = All;
+                Image = TestFile;
+                ToolTip = 'TestLocalSearch';
+
+                trigger OnAction()
+                var
+                    LocationsAPI: Codeunit "jdi BingMaps Locations API";
+                    JResponse: JsonObject;
+                    XmlResponse: XmlDocument;
+                    HttpResponse: HttpResponseMessage;
+
+                    Param: Dictionary of [Enum "jdi BingMaps LocalSearch Parameter", Text];
+                    LocalSearchParam: Enum "jdi BingMaps LocalSearch Parameter";
+                begin
+                    Clear(Param);
+                    Param.Add(LocalSearchParam::query, 'coffee');
+                    Param.Add(LocalSearchParam::userLocation, '47.602038,-122.333964');
+
+                    LocationsAPI.LocalSearch(Param, JResponse);
+                    LocationsAPI.LocalSearch(Param, XmlResponse);
+                    LocationsAPI.LocalSearch(Param, HttpResponse);
+                end;
+            }
+
+
+
         }
     }
 }
