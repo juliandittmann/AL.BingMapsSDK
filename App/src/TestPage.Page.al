@@ -248,7 +248,34 @@ page 50000 "jdi BingMaps TestPage"
             }
 
 
+            action(TestFindLocationByAddress)
+            {
+                ApplicationArea = All;
+                Image = TestFile;
+                ToolTip = 'TestFindLocationByAddress';
 
+                trigger OnAction()
+                var
+                    LocationsAPI: Codeunit "jdi BingMaps Locations API";
+                    JResponse: JsonObject;
+                    XmlResponse: XmlDocument;
+                    HttpResponse: HttpResponseMessage;
+
+                    Param: Dictionary of [Enum "jdi BingMaps FindLocationByAddress Parameter", Text];
+                    FindLocationByAddressParam: Enum "jdi BingMaps FindLocationByAddress Parameter";
+                begin
+                    Clear(Param);
+                    Param.Add(FindLocationByAddressParam::adminDistrict, 'WA');
+                    Param.Add(FindLocationByAddressParam::locality, 'Seattle');
+                    Param.Add(FindLocationByAddressParam::postalCode, '98178');
+                    Param.Add(FindLocationByAddressParam::addressLine, '1 Microsoft Way');
+                    Param.Add(FindLocationByAddressParam::countryRegion, 'US');
+
+                    LocationsAPI.FindLocationByAddress(Param, JResponse);
+                    LocationsAPI.FindLocationByAddress(Param, XmlResponse);
+                    LocationsAPI.FindLocationByAddress(Param, HttpResponse);
+                end;
+            }
         }
     }
 }
