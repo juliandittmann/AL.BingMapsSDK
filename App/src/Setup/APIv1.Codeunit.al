@@ -42,11 +42,15 @@ codeunit 50010 "jdi BingMaps API v1" implements "jdi BingMaps IVersion"
         exit(Enum::"jdi BingMaps LocalSearch API"::v1);
     end;
 
-
-
+    procedure GetTrafficIncidents(): enum "jdi BingMaps GetTrafficIncidents API";
+    begin
+        exit(Enum::"jdi BingMaps GetTrafficIncidents API"::v1);
+    end;
 
     procedure Autosuggest(): enum "jdi BingMaps Autosuggest API";
     begin
         exit(Enum::"jdi BingMaps Autosuggest API"::v1);
     end;
+
+
 }

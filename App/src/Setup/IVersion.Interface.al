@@ -13,5 +13,7 @@ interface "jdi BingMaps IVersion"
     procedure LocalSearch(): Enum "jdi BingMaps LocalSearch API";
 
 
+    procedure GetTrafficIncidents(): Enum "jdi BingMaps GetTrafficIncidents API";
+
     procedure Autosuggest(): Enum "jdi BingMaps Autosuggest API";
 }
