@@ -6,7 +6,7 @@ codeunit 50016 "jdi BingMaps FindLocByQuery v1" implements "jdi BingMaps IFindLo
         UriBuilder: Codeunit "Uri Builder";
         Uri: Codeunit Uri;
 
-        BaseUriLbl: Label 'http://dev.virtualearth.net/REST/v1/Locations', Locked = true;
+        BaseUriLbl: Label 'https://dev.virtualearth.net/REST/v1/Locations', Locked = true;
     begin
         UriBuilder.Init(BaseUriLbl);
         UriBuilder.SetQuery(GetQueryString(Parameter));

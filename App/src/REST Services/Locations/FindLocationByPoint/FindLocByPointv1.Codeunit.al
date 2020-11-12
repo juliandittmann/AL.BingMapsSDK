@@ -40,7 +40,7 @@ codeunit 50014 "jdi BingMaps FindLocByPoint v1" implements "jdi BingMaps IFindLo
     var
         FindLocationByPointParamenter: Enum "jdi BingMaps FindLocationByPoint Parameter";
 
-        BaseUriLbl: Label 'http://dev.virtualearth.net/REST/v1/Locations/%1', Locked = true;
+        BaseUriLbl: Label 'https://dev.virtualearth.net/REST/v1/Locations/%1', Locked = true;
     begin
         if Parameter.ContainsKey(FindLocationByPointParamenter::point) then begin
             BaseUrl := StrSubstNo(BaseUriLbl, Parameter.Get(FindLocationByPointParamenter::point));

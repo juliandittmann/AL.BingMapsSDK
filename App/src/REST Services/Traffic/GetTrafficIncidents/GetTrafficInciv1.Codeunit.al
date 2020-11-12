@@ -66,7 +66,7 @@ codeunit 50021 "jdi BingMaps GetTrafficInci v1" implements "jdi BingMaps IGetTra
     var
         GetTrafficIncidentsParamenter: Enum "jdi BingMaps GetTrafficIncidents Parameter";
 
-        BaseUriLbl: Label 'http://dev.virtualearth.net/REST/v1/Traffic/Incidents', Locked = true;
+        BaseUriLbl: Label 'https://dev.virtualearth.net/REST/v1/Traffic/Incidents', Locked = true;
     begin
         BaseUrl := BaseUriLbl;
 

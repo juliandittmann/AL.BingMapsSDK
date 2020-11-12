@@ -6,7 +6,7 @@ codeunit 50020 "jdi BingMaps Autosuggest v1" implements "jdi BingMaps IAutosugge
         UriBuilder: Codeunit "Uri Builder";
         Uri: Codeunit Uri;
 
-        BaseUriLbl: Label 'http://dev.virtualearth.net/REST/v1/Autosuggest', Locked = true;
+        BaseUriLbl: Label 'https://dev.virtualearth.net/REST/v1/Autosuggest', Locked = true;
     begin
         UriBuilder.Init(BaseUriLbl);
         UriBuilder.SetQuery(GetQueryString(Parameter));
