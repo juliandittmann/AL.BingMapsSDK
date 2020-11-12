@@ -63,7 +63,7 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
     end;
 
 
-    local procedure BuildBaseUrl(Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]) BaseUrl: Text
+    local procedure BuildBaseUrl(var Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]) BaseUrl: Text
     var
         FindTimeZoneParamenter: Enum "jdi BingMaps FindTimeZone Parameter";
 
