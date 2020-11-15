@@ -1,5 +1,12 @@
 interface "jdi BingMaps IVersion"
 {
+
+
+
+
+    procedure GetElevationList(): Enum "jdi BingMaps GetElevationList API";
+
+
     procedure FindTimeZone(): Enum "jdi BingMaps FindTimeZone API";
     procedure ConvertTimeZone(): Enum "jdi BingMaps ConvertTimeZone API";
     procedure ListTimeZones(): Enum "jdi BingMaps ListTimeZones API";
