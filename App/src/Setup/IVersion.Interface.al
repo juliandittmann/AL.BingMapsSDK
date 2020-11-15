@@ -5,6 +5,7 @@ interface "jdi BingMaps IVersion"
 
 
     procedure GetElevationList(): Enum "jdi BingMaps GetElevationList API";
+    procedure GetElevationPolyline(): Enum "jdi BingMaps GetElevationPolyline API";
     procedure GetElevationBounds(): Enum "jdi BingMaps GetElevationBounds API";
 
 
