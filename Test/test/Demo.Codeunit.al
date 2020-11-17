@@ -1,4 +1,4 @@
-codeunit 50103 "jdi Template Test Demo"
+codeunit 50203 "jdi BingMaps Test Demo"
 {
     Subtype = Test;
     TestPermissions = Disabled;
