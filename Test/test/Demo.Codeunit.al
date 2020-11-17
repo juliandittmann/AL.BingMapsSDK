@@ -9,10 +9,4 @@ codeunit 50203 "jdi BingMaps Test Demo"
 
     end;
 
-    [Test]
-    procedure TestError()
-    begin
-        Error('This Test has to fail');
-    end;
-
 }
