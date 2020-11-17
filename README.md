@@ -1,6 +1,4 @@
-
-
-
+![Build](https://github.com/juliandittmann/AL.BingMapsSDK/workflows/CI/badge.svg?branch=main)
 # Bing Maps SDK for Dynamics 365 Business Central 
 
 This is a library which provides a set of tools that make it easy to access the Bing Maps REST services in AL. Take a look at the [Getting Started documentation](https://github.com/juliandittmann/AL.BingMapsSDK/blob/master/Docs/Getting%20Started.md). The Bing Maps REST Services provides the following functionality:
