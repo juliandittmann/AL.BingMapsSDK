@@ -2,14 +2,14 @@ name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 env:
   version: ci
-  appVersion: '2.0'
+  appVersion: '17.0'
   appBuild: ${{github.run_number}}
   appRevision: 0
 
