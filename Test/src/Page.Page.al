@@ -1,4 +1,4 @@
-page 50000 "jdi BingMaps TestPage"
+page 50200 "jdi BingMaps Test Page"
 {
     PageType = Card;
     ApplicationArea = All;
