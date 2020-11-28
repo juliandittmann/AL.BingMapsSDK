@@ -71,4 +71,9 @@ codeunit 50010 "jdi BingMaps API v1" implements "jdi BingMaps IVersion"
     begin
         exit(Enum::"jdi BingMaps GetElevationSealevel API"::v1);
     end;
+
+    procedure CalculateRoute(): enum "jdi BingMaps CalculateRoute API";
+    begin
+        exit(Enum::"jdi BingMaps CalculateRoute API"::v1);
+    end;
 }

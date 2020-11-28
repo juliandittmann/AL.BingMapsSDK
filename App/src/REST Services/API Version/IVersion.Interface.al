@@ -25,4 +25,7 @@ interface "jdi BingMaps IVersion"
     procedure GetTrafficIncidents(): Enum "jdi BingMaps GetTrafficIncidents API";
 
     procedure Autosuggest(): Enum "jdi BingMaps Autosuggest API";
+
+
+    procedure CalculateRoute(): Enum "jdi BingMaps CalculateRoute API";
 }
