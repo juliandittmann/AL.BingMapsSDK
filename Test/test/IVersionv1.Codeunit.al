@@ -64,7 +64,6 @@ codeunit 50203 "jdi BingMaps Test IVersion v1"
     end;
 
     [Test]
-
     procedure TestInterfaceConvertTimeZoneAPI()
     var
         APIVersion: Enum "jdi BingMaps API Version";
@@ -77,7 +76,6 @@ codeunit 50203 "jdi BingMaps Test IVersion v1"
     end;
 
     [Test]
-
     procedure TestInterfaceListTimeZonesAPI()
     var
         APIVersion: Enum "jdi BingMaps API Version";
@@ -114,7 +112,6 @@ codeunit 50203 "jdi BingMaps Test IVersion v1"
     end;
 
     [Test]
-
     procedure TestInterfaceFindLocationByQueryAPI()
     var
         APIVersion: Enum "jdi BingMaps API Version";
@@ -139,7 +136,6 @@ codeunit 50203 "jdi BingMaps Test IVersion v1"
     end;
 
     [Test]
-
     procedure TestInterfaceLocalSearchAPI()
     var
         APIVersion: Enum "jdi BingMaps API Version";
@@ -152,7 +148,6 @@ codeunit 50203 "jdi BingMaps Test IVersion v1"
     end;
 
     [Test]
-
     procedure TestInterfaceGetTrafficIncidentsAPI()
     var
         APIVersion: Enum "jdi BingMaps API Version";
@@ -165,7 +160,6 @@ codeunit 50203 "jdi BingMaps Test IVersion v1"
     end;
 
     [Test]
-
     procedure TestInterfaceAutosuggestAPI()
     var
         APIVersion: Enum "jdi BingMaps API Version";
@@ -176,6 +170,19 @@ codeunit 50203 "jdi BingMaps Test IVersion v1"
         IVersion := APIVersion::v1;
         Assert.AreEqual(IVersion.Autosuggest(), AutosuggestAPI::v1, 'Interface implementation should return v1 API');
     end;
+
+    [Test]
+    procedure TestInterfaceCalculateRouteAPI()
+    var
+        APIVersion: Enum "jdi BingMaps API Version";
+        IVersion: Interface "jdi BingMaps IVersion";
+
+        CalculateRouteAPI: Enum "jdi BingMaps CalculateRoute API";
+    begin
+        IVersion := APIVersion::v1;
+        Assert.AreEqual(IVersion.CalculateRoute(), CalculateRouteAPI::v1, 'Interface implementation should return v1 API');
+    end;
+
 
     var
         Assert: Codeunit "Library Assert";
