@@ -41,7 +41,7 @@ codeunit 50027 "jdi BingMaps CalculateRoute v1" implements "jdi BingMaps ICalcul
     var
         CalculateRouteParameter: Enum "jdi BingMaps CalculateRoute Parameter";
 
-        BaseUriLbl: Label 'http://dev.virtualearth.net/REST/V1/Routes', Locked = true;
+        BaseUriLbl: Label 'https://dev.virtualearth.net/REST/V1/Routes', Locked = true;
     begin
         BaseUrl := BaseUriLbl;
         if Parameter.ContainsKey(CalculateRouteParameter::travelMode) then begin
