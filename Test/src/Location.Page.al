@@ -3,7 +3,7 @@ page 50202 "jdi BingMaps Test Location"
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    Caption = 'BingMaps SDK Test Manual Location';
+    Caption = 'BingMaps SDK Test Location (Manual)';
 
     layout
     {

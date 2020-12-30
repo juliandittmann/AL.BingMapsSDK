@@ -3,7 +3,7 @@ page 50203 "jdi BingMaps Test Autosuggest"
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    Caption = 'BingMaps SDK Test Manual Autosuggest';
+    Caption = 'BingMaps SDK Test Autosuggest (Manual)';
 
     layout
     {
