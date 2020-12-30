@@ -37,9 +37,15 @@ page 50205 "jdi BingMaps Test Routes"
                     CalculateRouteParam: Enum "jdi BingMaps CalculateRoute Parameter";
                 begin
                     Clear(Param);
-                    Param.Add(CalculateRouteParam::"wp.0", 'New York,NY');
-                    Param.Add(CalculateRouteParam::"wp.1", 'Philadelphia,PA');
-                    Param.Add(CalculateRouteParam::maxSolutions, '3');
+                    Param.Add(CalculateRouteParam::travelMode, 'Driving');
+
+                    Param.Add(CalculateRouteParam::"wp.0", 'Seattle,WA');
+                    Param.Add(CalculateRouteParam::"vwp.1", 'Portland,OR');
+                    Param.Add(CalculateRouteParam::"wp.2", 'Bend,OR');
+
+                    Param.Add(CalculateRouteParam::avoid, 'minimizeTolls');
+
+
 
                     RoutesAPI.CalculateRoute(Param, JResponse);
                     RoutesAPI.CalculateRoute(Param, XmlResponse);
