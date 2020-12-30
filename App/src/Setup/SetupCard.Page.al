@@ -60,7 +60,7 @@ page 50003 "jdi BingMaps Setup Card"
 
                         trigger OnAction()
                         begin
-                            //TODO: implement
+                            Error('TODO: implement');
                         end;
                     }
 
@@ -73,7 +73,7 @@ page 50003 "jdi BingMaps Setup Card"
 
                         trigger OnAction()
                         begin
-                            //TODO: implement
+                            Error('TODO: implement');
                         end;
                     }
 
@@ -86,7 +86,7 @@ page 50003 "jdi BingMaps Setup Card"
 
                         trigger OnAction()
                         begin
-                            //TODO: implement
+                            Error('TODO: implement');
                         end;
                     }
 
@@ -99,7 +99,7 @@ page 50003 "jdi BingMaps Setup Card"
 
                         trigger OnAction()
                         begin
-                            //TODO: implement
+                            Error('TODO: implement');
                         end;
                     }
                     action(PrivacyStatement)
@@ -111,7 +111,7 @@ page 50003 "jdi BingMaps Setup Card"
 
                         trigger OnAction()
                         begin
-                            //TODO: implement
+                            Error('TODO: implement');
                         end;
                     }
                 }
