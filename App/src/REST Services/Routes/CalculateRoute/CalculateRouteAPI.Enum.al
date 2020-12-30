@@ -5,6 +5,6 @@ enum 50029 "jdi BingMaps CalculateRoute API" implements "jdi BingMaps ICalculate
     value(0; "v1")
     {
         Caption = 'v1';
-        Implementation = "jdi BingMaps ICalculateRoute" = "jdi BingMaps Calculate Route";
+        Implementation = "jdi BingMaps ICalculateRoute" = "jdi BingMaps CalculateRoute v1";
     }
 }
