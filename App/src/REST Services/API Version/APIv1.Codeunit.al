@@ -76,4 +76,9 @@ codeunit 50010 "jdi BingMaps API v1" implements "jdi BingMaps IVersion"
     begin
         exit(Enum::"jdi BingMaps CalculateRoute API"::v1);
     end;
+
+    procedure CalculateTruckRoute(): enum "jdi BingMaps CalculateTruckRoute API";
+    begin
+        exit(Enum::"jdi BingMaps CalculateTruckRoute API"::v1);
+    end;
 }

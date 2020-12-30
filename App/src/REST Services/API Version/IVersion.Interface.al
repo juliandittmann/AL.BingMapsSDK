@@ -28,4 +28,5 @@ interface "jdi BingMaps IVersion"
 
 
     procedure CalculateRoute(): Enum "jdi BingMaps CalculateRoute API";
+    procedure CalculateTruckRoute(): Enum "jdi BingMaps CalculateTruckRoute API";
 }
