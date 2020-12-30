@@ -184,6 +184,19 @@ codeunit 50203 "jdi BingMaps Test IVersion v1"
     end;
 
 
+    [Test]
+    procedure TestInterfaceCalculateTruckRouteAPI()
+    var
+        APIVersion: Enum "jdi BingMaps API Version";
+        IVersion: Interface "jdi BingMaps IVersion";
+
+        CalculateTruckRouteAPI: Enum "jdi BingMaps CalculateTruckRoute API";
+    begin
+        IVersion := APIVersion::v1;
+        Assert.AreEqual(IVersion.CalculateTruckRoute(), CalculateTruckRouteAPI::v1, 'Interface implementation should return v1 API');
+    end;
+
+
     var
         Assert: Codeunit "Library Assert";
 }
