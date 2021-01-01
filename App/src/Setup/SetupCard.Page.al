@@ -20,12 +20,6 @@ page 50003 "jdi BingMaps Setup Card"
                     ToolTip = 'Required to communicate with Bing REST Services';
                 }
 
-                field("API Version"; Rec."API Version")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the API Version of Bing Maps';
-                }
-
                 field("Default API Key"; Rec."Default API Key")
                 {
                     ApplicationArea = All;

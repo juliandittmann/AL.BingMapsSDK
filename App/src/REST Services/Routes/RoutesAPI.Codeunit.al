@@ -1,43 +1,32 @@
 codeunit 50005 "jdi BingMaps Routes API"
 {
-    procedure CalculateRoute(Parameter: Dictionary of [Enum "jdi BingMaps CalculateRoute Parameter", Text]; var JsonResponse: JsonObject): Boolean
+    procedure CalculateRoute(APIVersion: Enum "jdi BingMaps CalculateRoute API"; Parameter: Dictionary of [Enum "jdi BingMaps CalculateRoute Parameter", Text]; var JsonResponse: JsonObject): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         ICalculateRoute: Interface "jdi BingMaps ICalculateRoute";
         localParameter: Dictionary of [Enum "jdi BingMaps CalculateRoute Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        ICalculateRoute := IVersion.CalculateRoute();
+        ICalculateRoute := APIVersion;
         ICalculateRoute.CalculateRoute(localParameter, JsonResponse);
     end;
 
-    procedure CalculateRoute(Parameter: Dictionary of [Enum "jdi BingMaps CalculateRoute Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
+    procedure CalculateRoute(APIVersion: Enum "jdi BingMaps CalculateRoute API"; Parameter: Dictionary of [Enum "jdi BingMaps CalculateRoute Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         ICalculateRoute: Interface "jdi BingMaps ICalculateRoute";
-
         localParameter: Dictionary of [Enum "jdi BingMaps CalculateRoute Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        ICalculateRoute := IVersion.CalculateRoute();
+        ICalculateRoute := APIVersion;
         ICalculateRoute.CalculateRoute(localParameter, HttpResponse);
     end;
 
-    procedure CalculateRoute(Parameter: Dictionary of [Enum "jdi BingMaps CalculateRoute Parameter", Text]; var XmlResponse: XmlDocument): Boolean
+    procedure CalculateRoute(APIVersion: Enum "jdi BingMaps CalculateRoute API"; Parameter: Dictionary of [Enum "jdi BingMaps CalculateRoute Parameter", Text]; var XmlResponse: XmlDocument): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         ICalculateRoute: Interface "jdi BingMaps ICalculateRoute";
-
         localParameter: Dictionary of [Enum "jdi BingMaps CalculateRoute Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        ICalculateRoute := IVersion.CalculateRoute();
+        ICalculateRoute := APIVersion;
         ICalculateRoute.CalculateRoute(localParameter, XmlResponse);
     end;
 
@@ -53,15 +42,44 @@ codeunit 50005 "jdi BingMaps Routes API"
     end;
 
 
-
-
-
-
-    local procedure GetIVersion(var IVersion: Interface "jdi BingMaps IVersion") //TODO: Does not belong here
+    procedure CalculateTruckRoute(APIVersion: Enum "jdi BingMaps CalculateTruckRoute API"; Parameter: Dictionary of [Enum "jdi BingMaps CalculateTruckRoute Parameter", Text]; var JsonResponse: JsonObject): Boolean
     var
-        BingMapsSDKSetup: Record "jdi BingMaps Setup";
+        ICalculateTruckRoute: Interface "jdi BingMaps ICalculateTruckRoute";
+        localParameter: Dictionary of [Enum "jdi BingMaps CalculateTruckRoute Parameter", Text];
     begin
-        BingMapsSDKSetup.Get();
-        IVersion := BingMapsSDKSetup."API Version";
+        CopyParameter(Parameter, localParameter);
+        ICalculateTruckRoute := APIVersion;
+        ICalculateTruckRoute.CalculateTruckRoute(localParameter, JsonResponse);
+    end;
+
+    procedure CalculateTruckRoute(APIVersion: Enum "jdi BingMaps CalculateTruckRoute API"; Parameter: Dictionary of [Enum "jdi BingMaps CalculateTruckRoute Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
+    var
+        ICalculateTruckRoute: Interface "jdi BingMaps ICalculateTruckRoute";
+        localParameter: Dictionary of [Enum "jdi BingMaps CalculateTruckRoute Parameter", Text];
+    begin
+        CopyParameter(Parameter, localParameter);
+        ICalculateTruckRoute := APIVersion;
+        ICalculateTruckRoute.CalculateTruckRoute(localParameter, HttpResponse);
+    end;
+
+    procedure CalculateTruckRoute(APIVersion: Enum "jdi BingMaps CalculateTruckRoute API"; Parameter: Dictionary of [Enum "jdi BingMaps CalculateTruckRoute Parameter", Text]; var XmlResponse: XmlDocument): Boolean
+    var
+        ICalculateTruckRoute: Interface "jdi BingMaps ICalculateTruckRoute";
+        localParameter: Dictionary of [Enum "jdi BingMaps CalculateTruckRoute Parameter", Text];
+    begin
+        CopyParameter(Parameter, localParameter);
+        ICalculateTruckRoute := APIVersion;
+        ICalculateTruckRoute.CalculateTruckRoute(localParameter, XmlResponse);
+    end;
+
+    local procedure CopyParameter(Parameter: Dictionary of [enum "jdi BingMaps CalculateTruckRoute Parameter", Text]; var ParameterCopy: Dictionary of [enum "jdi BingMaps CalculateTruckRoute Parameter", Text]);
+    var
+        ParamKeys: List of [Enum "jdi BingMaps CalculateTruckRoute Parameter"];
+        CalculateTruckRouteParameter: Enum "jdi BingMaps CalculateTruckRoute Parameter";
+    begin
+        Clear(ParameterCopy);
+        ParamKeys := Parameter.Keys;
+        foreach CalculateTruckRouteParameter in ParamKeys do
+            ParameterCopy.Add(CalculateTruckRouteParameter, Parameter.Get(CalculateTruckRouteParameter));
     end;
 }

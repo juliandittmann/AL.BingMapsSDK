@@ -1,43 +1,33 @@
 codeunit 50003 "jdi BingMaps Elevations API"
 {
-    procedure GetElevationList(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationList Parameter", Text]; var JsonResponse: JsonObject): Boolean
+    procedure GetElevationList(APIVersion: Enum "jdi BingMaps GetElevationList API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationList Parameter", Text]; var JsonResponse: JsonObject): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationList: Interface "jdi BingMaps IGetElevationList";
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationList Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationList := IVersion.GetElevationList();
+        IGetElevationList := APIVersion;
         IGetElevationList.GetElevationList(localParameter, JsonResponse);
     end;
 
-    procedure GetElevationList(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationList Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
+    procedure GetElevationList(APIVersion: Enum "jdi BingMaps GetElevationList API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationList Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationList: Interface "jdi BingMaps IGetElevationList";
 
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationList Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationList := IVersion.GetElevationList();
+        IGetElevationList := APIVersion;
         IGetElevationList.GetElevationList(localParameter, HttpResponse);
     end;
 
-    procedure GetElevationList(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationList Parameter", Text]; var XmlResponse: XmlDocument): Boolean
+    procedure GetElevationList(APIVersion: Enum "jdi BingMaps GetElevationList API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationList Parameter", Text]; var XmlResponse: XmlDocument): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationList: Interface "jdi BingMaps IGetElevationList";
-
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationList Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationList := IVersion.GetElevationList();
+        IGetElevationList := APIVersion;
         IGetElevationList.GetElevationList(localParameter, XmlResponse);
     end;
 
@@ -52,44 +42,33 @@ codeunit 50003 "jdi BingMaps Elevations API"
             ParameterCopy.Add(GetElevationListParameter, Parameter.Get(GetElevationListParameter));
     end;
 
-    procedure GetElevationPolyline(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationPolyline Parameter", Text]; var JsonResponse: JsonObject): Boolean
+    procedure GetElevationPolyline(APIVersion: Enum "jdi BingMaps GetElevationPolyline API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationPolyline Parameter", Text]; var JsonResponse: JsonObject): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationPolyline: Interface "jdi BingMaps IGetElevationPolyline";
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationPolyline Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationPolyline := IVersion.GetElevationPolyline();
+        IGetElevationPolyline := APIVersion;
         IGetElevationPolyline.GetElevationPolyline(localParameter, JsonResponse);
     end;
 
-    procedure GetElevationPolyline(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationPolyline Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
+    procedure GetElevationPolyline(APIVersion: Enum "jdi BingMaps GetElevationPolyline API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationPolyline Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationPolyline: Interface "jdi BingMaps IGetElevationPolyline";
-
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationPolyline Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationPolyline := IVersion.GetElevationPolyline();
+        IGetElevationPolyline := APIVersion;
         IGetElevationPolyline.GetElevationPolyline(localParameter, HttpResponse);
     end;
 
-    procedure GetElevationPolyline(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationPolyline Parameter", Text]; var XmlResponse: XmlDocument): Boolean
+    procedure GetElevationPolyline(APIVersion: Enum "jdi BingMaps GetElevationPolyline API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationPolyline Parameter", Text]; var XmlResponse: XmlDocument): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationPolyline: Interface "jdi BingMaps IGetElevationPolyline";
-
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationPolyline Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationPolyline := IVersion.GetElevationPolyline();
+        IGetElevationPolyline := APIVersion;
         IGetElevationPolyline.GetElevationPolyline(localParameter, XmlResponse);
     end;
 
@@ -104,44 +83,33 @@ codeunit 50003 "jdi BingMaps Elevations API"
             ParameterCopy.Add(GetElevationPolylineParameter, Parameter.Get(GetElevationPolylineParameter));
     end;
 
-    procedure GetElevationBounds(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationBounds Parameter", Text]; var JsonResponse: JsonObject): Boolean
+    procedure GetElevationBounds(APIVersion: Enum "jdi BingMaps GetElevationBounds API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationBounds Parameter", Text]; var JsonResponse: JsonObject): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationBounds: Interface "jdi BingMaps IGetElevationBounds";
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationBounds Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationBounds := IVersion.GetElevationBounds();
+        IGetElevationBounds := APIVersion;
         IGetElevationBounds.GetElevationBounds(localParameter, JsonResponse);
     end;
 
-    procedure GetElevationBounds(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationBounds Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
+    procedure GetElevationBounds(APIVersion: Enum "jdi BingMaps GetElevationBounds API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationBounds Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationBounds: Interface "jdi BingMaps IGetElevationBounds";
-
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationBounds Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationBounds := IVersion.GetElevationBounds();
+        IGetElevationBounds := APIVersion;
         IGetElevationBounds.GetElevationBounds(localParameter, HttpResponse);
     end;
 
-    procedure GetElevationBounds(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationBounds Parameter", Text]; var XmlResponse: XmlDocument): Boolean
+    procedure GetElevationBounds(APIVersion: Enum "jdi BingMaps GetElevationBounds API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationBounds Parameter", Text]; var XmlResponse: XmlDocument): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationBounds: Interface "jdi BingMaps IGetElevationBounds";
-
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationBounds Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationBounds := IVersion.GetElevationBounds();
+        IGetElevationBounds := APIVersion;
         IGetElevationBounds.GetElevationBounds(localParameter, XmlResponse);
     end;
 
@@ -156,44 +124,33 @@ codeunit 50003 "jdi BingMaps Elevations API"
             ParameterCopy.Add(GetElevationBoundsParameter, Parameter.Get(GetElevationBoundsParameter));
     end;
 
-    procedure GetElevationSealevel(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationSealevel Parameter", Text]; var JsonResponse: JsonObject): Boolean
+    procedure GetElevationSealevel(APIVersion: Enum "jdi BingMaps GetElevationSealevel API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationSealevel Parameter", Text]; var JsonResponse: JsonObject): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationSealevel: Interface "jdi BingMaps IGetElevationSealevel";
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationSealevel Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationSealevel := IVersion.GetElevationSealevel();
+        IGetElevationSealevel := APIVersion;
         IGetElevationSealevel.GetElevationSealevel(localParameter, JsonResponse);
     end;
 
-    procedure GetElevationSealevel(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationSealevel Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
+    procedure GetElevationSealevel(APIVersion: Enum "jdi BingMaps GetElevationSealevel API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationSealevel Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationSealevel: Interface "jdi BingMaps IGetElevationSealevel";
-
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationSealevel Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationSealevel := IVersion.GetElevationSealevel();
+        IGetElevationSealevel := APIVersion;
         IGetElevationSealevel.GetElevationSealevel(localParameter, HttpResponse);
     end;
 
-    procedure GetElevationSealevel(Parameter: Dictionary of [Enum "jdi BingMaps GetElevationSealevel Parameter", Text]; var XmlResponse: XmlDocument): Boolean
+    procedure GetElevationSealevel(APIVersion: Enum "jdi BingMaps GetElevationSealevel API"; Parameter: Dictionary of [Enum "jdi BingMaps GetElevationSealevel Parameter", Text]; var XmlResponse: XmlDocument): Boolean
     var
-        IVersion: Interface "jdi BingMaps IVersion";
         IGetElevationSealevel: Interface "jdi BingMaps IGetElevationSealevel";
-
         localParameter: Dictionary of [Enum "jdi BingMaps GetElevationSealevel Parameter", Text];
     begin
         CopyParameter(Parameter, localParameter);
-
-        GetIVersion(IVersion);
-        IGetElevationSealevel := IVersion.GetElevationSealevel();
+        IGetElevationSealevel := APIVersion;
         IGetElevationSealevel.GetElevationSealevel(localParameter, XmlResponse);
     end;
 
@@ -206,13 +163,5 @@ codeunit 50003 "jdi BingMaps Elevations API"
         ParamKeys := Parameter.Keys;
         foreach GetElevationSealevelParameter in ParamKeys do
             ParameterCopy.Add(GetElevationSealevelParameter, Parameter.Get(GetElevationSealevelParameter));
-    end;
-
-    local procedure GetIVersion(var IVersion: Interface "jdi BingMaps IVersion") //TODO: Does not belong here
-    var
-        BingMapsSDKSetup: Record "jdi BingMaps Setup";
-    begin
-        BingMapsSDKSetup.Get();
-        IVersion := BingMapsSDKSetup."API Version";
     end;
 }
