@@ -19,7 +19,7 @@
     "versions": [
         {
             "version": "ci",
-            "artifact": "//17.0.17126.17791/us",
+            "artifact": "///us/Current",
             "cacheImage": true,
             "CreateRuntimePackages": true
         },
