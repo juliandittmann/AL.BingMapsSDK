@@ -2,7 +2,7 @@
     "name": "BingMapsSDK",
     "memoryLimit": "6G",
     "installApps": "",
-    "previousApps": "https://juliandittmann.blob.core.windows.net/al-bingmapssdk/latest/apps.zip",
+    "previousApps": "",
     "appFolders": "App",
     "testFolders": "Test",
     "installTestFramework": true,
