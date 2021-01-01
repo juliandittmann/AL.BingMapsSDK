@@ -33,23 +33,23 @@ page 50205 "jdi BingMaps Test Routes"
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
+                    APIVersion: Enum "jdi BingMaps CalculateRoute API";
                     Param: Dictionary of [Enum "jdi BingMaps CalculateRoute Parameter", Text];
                     CalculateRouteParam: Enum "jdi BingMaps CalculateRoute Parameter";
                 begin
+                    APIVersion := APIVersion::v1;
+
                     Clear(Param);
                     Param.Add(CalculateRouteParam::travelMode, 'Driving');
 
                     Param.Add(CalculateRouteParam::"wp.0", 'Seattle,WA');
                     Param.Add(CalculateRouteParam::"vwp.1", 'Portland,OR');
                     Param.Add(CalculateRouteParam::"wp.2", 'Bend,OR');
-
                     Param.Add(CalculateRouteParam::avoid, 'minimizeTolls');
 
-
-
-                    RoutesAPI.CalculateRoute(Param, JResponse);
-                    RoutesAPI.CalculateRoute(Param, XmlResponse);
-                    RoutesAPI.CalculateRoute(Param, HttpResponse);
+                    RoutesAPI.CalculateRoute(APIVersion, Param, JResponse);
+                    RoutesAPI.CalculateRoute(APIVersion, Param, XmlResponse);
+                    RoutesAPI.CalculateRoute(APIVersion, Param, HttpResponse);
                 end;
             }
         }

@@ -24,7 +24,7 @@ page 50204 "jdi BingMaps Test TrafficIn"
             {
                 ApplicationArea = All;
                 Image = TestFile;
-                ToolTip = 'TestAutosuggest';
+                ToolTip = 'TestGetTrafficIncidents';
 
                 trigger OnAction()
                 var
@@ -33,15 +33,18 @@ page 50204 "jdi BingMaps Test TrafficIn"
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
+                    APIVersion: Enum "jdi BingMaps GetTrafficIncidents API";
                     Param: Dictionary of [Enum "jdi BingMaps GetTrafficIncidents Parameter", Text];
                     GetTrafficIncidentsParam: Enum "jdi BingMaps GetTrafficIncidents Parameter";
                 begin
+                    APIVersion := APIVersion::v1;
+
                     Clear(Param);
                     Param.Add(GetTrafficIncidentsParam::mapArea, '45.219,-122.325,47.610,-122.107');
 
-                    TrafficAPI.GetTrafficIncidents(Param, JResponse);
-                    TrafficAPI.GetTrafficIncidents(Param, XmlResponse);
-                    TrafficAPI.GetTrafficIncidents(Param, HttpResponse);
+                    TrafficAPI.GetTrafficIncidents(APIVersion, Param, JResponse);
+                    TrafficAPI.GetTrafficIncidents(APIVersion, Param, XmlResponse);
+                    TrafficAPI.GetTrafficIncidents(APIVersion, Param, HttpResponse);
                 end;
             }
         }
