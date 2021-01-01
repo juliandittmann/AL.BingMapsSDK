@@ -11,13 +11,7 @@ table 50000 "jdi BingMaps Setup"
             DataClassification = CustomerContent;
         }
 
-        field(2; "API Version"; Enum "jdi BingMaps API Version")
-        {
-            Caption = 'API version';
-            DataClassification = CustomerContent;
-        }
-
-        field(3; "Default API Key"; Code[20])
+        field(2; "Default API Key"; Code[20])
         {
             Caption = 'Default API Key';
             DataClassification = CustomerContent;
