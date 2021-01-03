@@ -9,8 +9,9 @@ page 50257 "jdi BingMaps Demo Sandbox"
     {
         area(Content)
         {
-            group(GroupName)
+            group(MapContainer)
             {
+                Caption = 'Map';
                 usercontrol(BingMaps; "jdi BingMaps V8 Web Control")
                 {
                     ApplicationArea = All;
