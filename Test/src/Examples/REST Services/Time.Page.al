@@ -41,6 +41,8 @@ page 50201 "jdi BingMaps Test Time"
 
                     Clear(Param);
                     Param.Add(FindTimeZoneParam::point, '47,-122');
+                    Param.Add(FindTimeZoneParam::"key", GetDefaultAPIKey());
+
                     TimezoneAPI.FindTimeZone(APIVersion, Param, JResponse);
                     TimezoneAPI.FindTimeZone(APIVersion, Param, XmlResponse);
                     TimezoneAPI.FindTimeZone(APIVersion, Param, HttpResponse);
@@ -49,7 +51,9 @@ page 50201 "jdi BingMaps Test Time"
                     Clear(XmlResponse);
                     Clear(HttpResponse);
                     Clear(Param);
+
                     Param.Add(FindTimeZoneParam::query, 'bellevue,wa,us');
+                    Param.Add(FindTimeZoneParam::"key", GetDefaultAPIKey());
 
                     TimezoneAPI.FindTimeZone(APIVersion, Param, JResponse);
                     TimezoneAPI.FindTimeZone(APIVersion, Param, XmlResponse);
@@ -79,6 +83,7 @@ page 50201 "jdi BingMaps Test Time"
                     Clear(Param);
                     Param.Add(ConvertTimeZoneParam::dateTime, '2018-05-15T13:14:15Z');
                     Param.Add(ConvertTimeZoneParam::desttz, 'america/Los_Angeles');
+                    Param.Add(ConvertTimeZoneParam::"key", GetDefaultAPIKey());
 
                     TimezoneAPI.ConvertTimeZone(APIVersion, Param, JResponse);
                     TimezoneAPI.ConvertTimeZone(APIVersion, Param, XmlResponse);
@@ -92,6 +97,7 @@ page 50201 "jdi BingMaps Test Time"
                     Param.Add(ConvertTimeZoneParam::dateTime, '2018-05-15T13:14:15Z');
                     Param.Add(ConvertTimeZoneParam::desttz, 'america/Los_Angeles');
                     Param.Add(ConvertTimeZoneParam::includeDstRules, 'true');
+                    Param.Add(ConvertTimeZoneParam::"key", GetDefaultAPIKey());
 
                     TimezoneAPI.ConvertTimeZone(APIVersion, Param, JResponse);
                     TimezoneAPI.ConvertTimeZone(APIVersion, Param, XmlResponse);
@@ -133,6 +139,7 @@ page 50201 "jdi BingMaps Test Time"
 
                     Param.Add(ListTimeZoneParam::desttz, 'America/Los_Angeles');
                     Param.Add(ListTimeZoneParam::includeDstRules, 'true');
+                    Param.Add(ListTimeZoneParam::"key", GetDefaultAPIKey());
 
                     TimezoneAPI.ListTimeZones(APIVersion, Param, JResponse);
                     TimezoneAPI.ListTimeZones(APIVersion, Param, XmlResponse);
@@ -141,4 +148,12 @@ page 50201 "jdi BingMaps Test Time"
             }
         }
     }
+
+    local procedure GetDefaultAPIKey(): Text
+    var
+        BingMapsSDKTestSetup: Record "jdi BingMaps Test Setup";
+    begin
+        if BingMapsSDKTestSetup.Get() then
+            exit(BingMapsSDKTestSetup.GetDefaultAPIKey());
+    end;
 }

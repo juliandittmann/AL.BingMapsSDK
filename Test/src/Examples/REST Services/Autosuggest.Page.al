@@ -43,6 +43,7 @@ page 50203 "jdi BingMaps Test Autosuggest"
                     Clear(Param);
                     Param.Add(AutosuggestParam::query, 'El Gaucho');
                     Param.Add(AutosuggestParam::userLocation, '48.604311,-122.981998,5000');
+                    Param.Add(AutosuggestParam::"key", GetDefaultAPIKey());
 
                     AutosuggestAPI.Autosuggest(APIVerion, Param, JResponse);
                     AutosuggestAPI.Autosuggest(APIVerion, Param, XmlResponse);
@@ -53,6 +54,11 @@ page 50203 "jdi BingMaps Test Autosuggest"
         }
     }
 
+    local procedure GetDefaultAPIKey(): Text
     var
-        myInt: Integer;
+        BingMapsSDKTestSetup: Record "jdi BingMaps Test Setup";
+    begin
+        if BingMapsSDKTestSetup.Get() then
+            exit(BingMapsSDKTestSetup.GetDefaultAPIKey());
+    end;
 }

@@ -46,6 +46,7 @@ page 50205 "jdi BingMaps Test Routes"
                     Param.Add(CalculateRouteParam::"vwp.1", 'Portland,OR');
                     Param.Add(CalculateRouteParam::"wp.2", 'Bend,OR');
                     Param.Add(CalculateRouteParam::avoid, 'minimizeTolls');
+                    Param.Add(CalculateRouteParam::"key", GetDefaultAPIKey());
 
                     RoutesAPI.CalculateRoute(APIVersion, Param, JResponse);
                     RoutesAPI.CalculateRoute(APIVersion, Param, XmlResponse);
@@ -54,4 +55,11 @@ page 50205 "jdi BingMaps Test Routes"
             }
         }
     }
+    local procedure GetDefaultAPIKey(): Text
+    var
+        BingMapsSDKTestSetup: Record "jdi BingMaps Test Setup";
+    begin
+        if BingMapsSDKTestSetup.Get() then
+            exit(BingMapsSDKTestSetup.GetDefaultAPIKey());
+    end;
 }

@@ -41,6 +41,7 @@ page 50204 "jdi BingMaps Test TrafficIn"
 
                     Clear(Param);
                     Param.Add(GetTrafficIncidentsParam::mapArea, '45.219,-122.325,47.610,-122.107');
+                    Param.Add(GetTrafficIncidentsParam::"key", GetDefaultAPIKey());
 
                     TrafficAPI.GetTrafficIncidents(APIVersion, Param, JResponse);
                     TrafficAPI.GetTrafficIncidents(APIVersion, Param, XmlResponse);
@@ -49,4 +50,12 @@ page 50204 "jdi BingMaps Test TrafficIn"
             }
         }
     }
+
+    local procedure GetDefaultAPIKey(): Text
+    var
+        BingMapsSDKTestSetup: Record "jdi BingMaps Test Setup";
+    begin
+        if BingMapsSDKTestSetup.Get() then
+            exit(BingMapsSDKTestSetup.GetDefaultAPIKey());
+    end;
 }

@@ -41,6 +41,7 @@ page 50202 "jdi BingMaps Test Location"
 
                     Clear(Param);
                     Param.Add(FindLocationByPointParam::point, '47.64054,-122.12934');
+                    Param.Add(FindLocationByPointParam::"key", GetDefaultAPIKey());
 
                     LocationsAPI.FindLocationByPoint(APIVersion, Param, JResponse);
                     LocationsAPI.FindLocationByPoint(APIVersion, Param, XmlResponse);
@@ -71,6 +72,7 @@ page 50202 "jdi BingMaps Test Location"
 
                     Clear(Param);
                     Param.Add(FindLocationByQueryParam::query, 'White House');
+                    Param.Add(FindLocationByQueryParam::"key", GetDefaultAPIKey());
 
                     LocationsAPI.FindLocationByQuery(APIVersion, Param, JResponse);
                     LocationsAPI.FindLocationByQuery(APIVersion, Param, XmlResponse);
@@ -100,6 +102,7 @@ page 50202 "jdi BingMaps Test Location"
 
                     Clear(Param);
                     Param.Add(LocationRecognitionParam::point, '47.610679194331169,-122.10788659751415');
+                    Param.Add(LocationRecognitionParam::"key", GetDefaultAPIKey());
 
                     LocationsAPI.LocationRecognition(APIVersion, Param, JResponse);
                     LocationsAPI.LocationRecognition(APIVersion, Param, XmlResponse);
@@ -129,6 +132,7 @@ page 50202 "jdi BingMaps Test Location"
                     Clear(Param);
                     Param.Add(LocalSearchParam::query, 'coffee');
                     Param.Add(LocalSearchParam::userLocation, '47.602038,-122.333964');
+                    Param.Add(LocalSearchParam::"key", GetDefaultAPIKey());
 
                     LocationsAPI.LocalSearch(APIVersion, Param, JResponse);
                     LocationsAPI.LocalSearch(APIVersion, Param, XmlResponse);
@@ -162,6 +166,7 @@ page 50202 "jdi BingMaps Test Location"
                     Param.Add(FindLocationByAddressParam::postalCode, '98178');
                     Param.Add(FindLocationByAddressParam::addressLine, '1 Microsoft Way');
                     Param.Add(FindLocationByAddressParam::countryRegion, 'US');
+                    Param.Add(FindLocationByAddressParam::"key", GetDefaultAPIKey());
 
                     LocationsAPI.FindLocationByAddress(APIVersion, Param, JResponse);
                     LocationsAPI.FindLocationByAddress(APIVersion, Param, XmlResponse);
@@ -170,4 +175,12 @@ page 50202 "jdi BingMaps Test Location"
             }
         }
     }
+
+    local procedure GetDefaultAPIKey(): Text
+    var
+        BingMapsSDKTestSetup: Record "jdi BingMaps Test Setup";
+    begin
+        if BingMapsSDKTestSetup.Get() then
+            exit(BingMapsSDKTestSetup.GetDefaultAPIKey());
+    end;
 }
