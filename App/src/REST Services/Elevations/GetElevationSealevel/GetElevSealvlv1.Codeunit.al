@@ -39,14 +39,10 @@ codeunit 50025 "jdi BingMaps GetElev.Sealvl v1" implements "jdi BingMaps IGetEle
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps GetElevationSealevel Parameter", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps GetElevationSealevel Parameter"];
         GetElevationSealevelParameter: Enum "jdi BingMaps GetElevationSealevel Parameter";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(GetElevationSealevelParameter::"key") then
-            Parameter.Add(GetElevationSealevelParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach GetElevationSealevelParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(GetElevationSealevelParameter) + '=' + Parameter.Get(GetElevationSealevelParameter) + '&');

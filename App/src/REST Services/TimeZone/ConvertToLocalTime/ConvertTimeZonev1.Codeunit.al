@@ -39,14 +39,10 @@ codeunit 50012 "jdi BingMaps ConvertTimeZonev1" implements "jdi BingMaps IConver
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps ConvertTimeZone Parameter", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps ConvertTimeZone Parameter"];
         ConvertTimeZoneParameter: Enum "jdi BingMaps ConvertTimeZone Parameter";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(ConvertTimeZoneParameter::"key") then
-            Parameter.Add(ConvertTimeZoneParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach ConvertTimeZoneParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(ConvertTimeZoneParameter) + '=' + Parameter.Get(ConvertTimeZoneParameter) + '&');

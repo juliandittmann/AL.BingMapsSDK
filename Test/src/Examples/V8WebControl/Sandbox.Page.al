@@ -1,4 +1,4 @@
-page 50000 "jdi BingMaps Sandbox"
+page 50200 "jdi BingMaps Test Sandbox"
 {
     Caption = 'BingMaps ControlAddin Sandbox';
     PageType = Card;
@@ -17,7 +17,7 @@ page 50000 "jdi BingMaps Sandbox"
 
                     trigger ControlAddinLoaded()
                     var
-                        BingMapsSetup: Record "jdi BingMaps Setup";
+                        BingMapsSetup: Record "jdi BingMaps Test Setup";
                         Param: JsonObject;
                     begin
                         ControlAddinLoaded := true;

@@ -1,4 +1,4 @@
-table 50000 "jdi BingMaps Setup"
+table 50201 "jdi BingMaps Test Setup"
 {
     DataClassification = SystemMetadata;
     Access = Internal;
@@ -15,7 +15,7 @@ table 50000 "jdi BingMaps Setup"
         {
             Caption = 'Default API Key';
             DataClassification = CustomerContent;
-            TableRelation = "jdi BingMaps API Key";
+            TableRelation = "jdi BingMaps Test API Key";
         }
 
         field(40; "Enable Webservice Calls"; Boolean)
@@ -48,7 +48,7 @@ table 50000 "jdi BingMaps Setup"
     [NonDebuggable]
     procedure GetDefaultAPIKey(): Text
     var
-        APIKey: Record "jdi BingMaps API Key";
+        APIKey: Record "jdi BingMaps Test API Key";
     begin
         if APIKey.Get("Default API Key") then
             exit(APIKey.GetAPIKey());

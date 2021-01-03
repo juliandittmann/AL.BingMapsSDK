@@ -43,9 +43,6 @@ codeunit 50018 "jdi BingMaps LocalSearch v1" implements "jdi BingMaps ILocalSear
         LocalSearchParameter: Enum "jdi BingMaps LocalSearch Parameter";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(LocalSearchParameter::"key") then
-            Parameter.Add(LocalSearchParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach LocalSearchParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(LocalSearchParameter) + '=' + Parameter.Get(LocalSearchParameter) + '&');

@@ -36,14 +36,10 @@ codeunit 50021 "jdi BingMaps GetTrafficInci v1" implements "jdi BingMaps IGetTra
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps GetTrafficIncidents Parameter", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps GetTrafficIncidents Parameter"];
         GetTrafficIncidentsParameter: Enum "jdi BingMaps GetTrafficIncidents Parameter";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(GetTrafficIncidentsParameter::"key") then
-            Parameter.Add(GetTrafficIncidentsParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach GetTrafficIncidentsParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(GetTrafficIncidentsParameter) + '=' + Parameter.Get(GetTrafficIncidentsParameter) + '&');

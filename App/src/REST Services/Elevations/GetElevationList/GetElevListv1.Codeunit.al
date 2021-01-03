@@ -39,14 +39,10 @@ codeunit 50022 "jdi BingMaps GetElev. List v1" implements "jdi BingMaps IGetElev
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps GetElevationList Parameter", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps GetElevationList Parameter"];
         GetElevationListParameter: Enum "jdi BingMaps GetElevationList Parameter";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(GetElevationListParameter::"key") then
-            Parameter.Add(GetElevationListParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach GetElevationListParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(GetElevationListParameter) + '=' + Parameter.Get(GetElevationListParameter) + '&');

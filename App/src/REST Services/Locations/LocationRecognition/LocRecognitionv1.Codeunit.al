@@ -49,14 +49,10 @@ codeunit 50017 "jdi BingMaps LocRecognition v1" implements "jdi BingMaps ILocati
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps LocationRecognition Parameter", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps LocationRecognition Parameter"];
         LocationRecognitionParameter: Enum "jdi BingMaps LocationRecognition Parameter";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(LocationRecognitionParameter::"key") then
-            Parameter.Add(LocationRecognitionParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach LocationRecognitionParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(LocationRecognitionParameter) + '=' + Parameter.Get(LocationRecognitionParameter) + '&');

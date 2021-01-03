@@ -37,14 +37,10 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps FindTimeZone Parameter"];
         FindTimeZoneParameter: Enum "jdi BingMaps FindTimeZone Parameter";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(FindTimeZoneParameter::"key") then
-            Parameter.Add(FindTimeZoneParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach FindTimeZoneParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(FindTimeZoneParameter) + '=' + Parameter.Get(FindTimeZoneParameter) + '&');
@@ -61,7 +57,6 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
         Index := FindTimeZoneParameter.Ordinals.IndexOf(OrdinalValue);
         exit(FindTimeZoneParameter.Names.Get(Index));
     end;
-
 
     local procedure BuildBaseUrl(var Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]) BaseUrl: Text
     var

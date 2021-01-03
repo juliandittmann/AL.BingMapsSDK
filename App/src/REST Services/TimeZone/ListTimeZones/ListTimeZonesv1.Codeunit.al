@@ -37,14 +37,10 @@ codeunit 50013 "jdi BingMaps ListTimeZones v1" implements "jdi BingMaps IListTim
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps ListTimeZones Parameter", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps ListTimeZones Parameter"];
         ListTimeZonesParameter: Enum "jdi BingMaps ListTimeZones Parameter";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(ListTimeZonesParameter::"key") then
-            Parameter.Add(ListTimeZonesParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach ListTimeZonesParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(ListTimeZonesParameter) + '=' + Parameter.Get(ListTimeZonesParameter) + '&');

@@ -57,9 +57,6 @@ codeunit 50027 "jdi BingMaps CalculateRoute v1" implements "jdi BingMaps ICalcul
         CalculateRouteParameter: Enum "jdi BingMaps CalculateRoute Parameter";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(CalculateRouteParameter::"key") then
-            Parameter.Add(CalculateRouteParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach CalculateRouteParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(CalculateRouteParameter) + '=' + Parameter.Get(CalculateRouteParameter) + '&');

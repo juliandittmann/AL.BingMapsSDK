@@ -39,14 +39,10 @@ codeunit 50019 "jdi BingMaps FindLocByAddr v1" implements "jdi BingMaps IFindLoc
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps FindLocationByAddress Parameter", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps FindLocationByAddress Parameter"];
         FindLocationByAddressParameter: Enum "jdi BingMaps FindLocationByAddress Parameter";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(FindLocationByAddressParameter::"key") then
-            Parameter.Add(FindLocationByAddressParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach FindLocationByAddressParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(FindLocationByAddressParameter) + '=' + Parameter.Get(FindLocationByAddressParameter) + '&');

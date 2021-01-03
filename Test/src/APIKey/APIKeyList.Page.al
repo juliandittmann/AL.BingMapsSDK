@@ -1,4 +1,4 @@
-page 50001 "jdi BingMaps API Key List"
+page 50207 "jdi BingMaps Test API Key List"
 {
     PageType = List;
     ApplicationArea = All;
@@ -6,8 +6,8 @@ page 50001 "jdi BingMaps API Key List"
 
     Caption = 'Bing Maps SDK API Key List';
 
-    CardPageId = "jdi BingMaps API Key Card";
-    SourceTable = "jdi BingMaps API Key";
+    CardPageId = "jdi BingMaps Test API Key Card";
+    SourceTable = "jdi BingMaps Test API Key";
     Editable = false;
 
     layout

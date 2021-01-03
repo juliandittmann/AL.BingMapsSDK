@@ -43,9 +43,6 @@ codeunit 50020 "jdi BingMaps Autosuggest v1" implements "jdi BingMaps IAutosugge
         AutosuggestParameter: Enum "jdi BingMaps Autosuggest Parameter";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(AutosuggestParameter::"key") then
-            Parameter.Add(AutosuggestParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach AutosuggestParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(AutosuggestParameter) + '=' + Parameter.Get(AutosuggestParameter) + '&');
