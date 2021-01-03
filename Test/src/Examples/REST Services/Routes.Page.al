@@ -28,14 +28,14 @@ page 50205 "jdi BingMaps Test Routes"
 
                 trigger OnAction()
                 var
-                    RoutesAPI: Codeunit "jdi BingMaps Routes API";
+                    RoutesAPI: Codeunit "jdi BingMaps API Routes";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
-                    APIVersion: Enum "jdi BingMaps CalculateRoute API";
-                    Param: Dictionary of [Enum "jdi BingMaps CalculateRoute Parameter", Text];
-                    CalculateRouteParam: Enum "jdi BingMaps CalculateRoute Parameter";
+                    APIVersion: Enum "jdi BingMaps API CalculateRoute";
+                    Param: Dictionary of [Enum "jdi BingMaps Parameter CalculateRoute", Text];
+                    CalculateRouteParam: Enum "jdi BingMaps Parameter CalculateRoute";
                 begin
                     APIVersion := APIVersion::v1;
 

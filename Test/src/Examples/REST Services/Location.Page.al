@@ -28,14 +28,14 @@ page 50202 "jdi BingMaps Test Location"
 
                 trigger OnAction()
                 var
-                    LocationsAPI: Codeunit "jdi BingMaps Locations API";
+                    LocationsAPI: Codeunit "jdi BingMaps API Locations";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
-                    APIVersion: Enum "jdi BingMaps FindLocationByPoint API";
-                    Param: Dictionary of [Enum "jdi BingMaps FindLocationByPoint Parameter", Text];
-                    FindLocationByPointParam: Enum "jdi BingMaps FindLocationByPoint Parameter";
+                    APIVersion: Enum "jdi BingMaps API FindLocationByPoint";
+                    Param: Dictionary of [Enum "jdi BingMaps Parameter FindLocationByPoint", Text];
+                    FindLocationByPointParam: Enum "jdi BingMaps Parameter FindLocationByPoint";
                 begin
                     APIVersion := APIVersion::v1;
 
@@ -58,15 +58,15 @@ page 50202 "jdi BingMaps Test Location"
 
                 trigger OnAction()
                 var
-                    LocationsAPI: Codeunit "jdi BingMaps Locations API";
+                    LocationsAPI: Codeunit "jdi BingMaps API Locations";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
 
-                    APIVersion: Enum "jdi BingMaps FindLocationByQuery API";
-                    Param: Dictionary of [Enum "jdi BingMaps FindLocationByQuery Parameter", Text];
-                    FindLocationByQueryParam: Enum "jdi BingMaps FindLocationByQuery Parameter";
+                    APIVersion: Enum "jdi BingMaps API FindLocationByQuery";
+                    Param: Dictionary of [Enum "jdi BingMaps Parameter FindLocationByQuery", Text];
+                    FindLocationByQueryParam: Enum "jdi BingMaps Parameter FindLocationByQuery";
                 begin
                     APIVersion := APIVersion::v1;
 
@@ -89,14 +89,14 @@ page 50202 "jdi BingMaps Test Location"
 
                 trigger OnAction()
                 var
-                    LocationsAPI: Codeunit "jdi BingMaps Locations API";
+                    LocationsAPI: Codeunit "jdi BingMaps API Locations";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
-                    APIVersion: Enum "jdi BingMaps LocationRecognition API";
-                    Param: Dictionary of [Enum "jdi BingMaps LocationRecognition Parameter", Text];
-                    LocationRecognitionParam: Enum "jdi BingMaps LocationRecognition Parameter";
+                    APIVersion: Enum "jdi BingMaps API LocationRecognition";
+                    Param: Dictionary of [Enum "jdi BingMaps Parameter LocationRecognition", Text];
+                    LocationRecognitionParam: Enum "jdi BingMaps Parameter LocationRecognition";
                 begin
                     APIVersion := APIVersion::v1;
 
@@ -118,14 +118,14 @@ page 50202 "jdi BingMaps Test Location"
 
                 trigger OnAction()
                 var
-                    LocationsAPI: Codeunit "jdi BingMaps Locations API";
+                    LocationsAPI: Codeunit "jdi BingMaps API Locations";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
-                    APIVersion: Enum "jdi BingMaps LocalSearch API";
-                    Param: Dictionary of [Enum "jdi BingMaps LocalSearch Parameter", Text];
-                    LocalSearchParam: Enum "jdi BingMaps LocalSearch Parameter";
+                    APIVersion: Enum "jdi BingMaps API LocalSearch";
+                    Param: Dictionary of [Enum "jdi BingMaps Parameter LocalSearch", Text];
+                    LocalSearchParam: Enum "jdi BingMaps Parameter LocalSearch";
                 begin
                     APIVersion := APIVersion::v1;
 
@@ -149,14 +149,14 @@ page 50202 "jdi BingMaps Test Location"
 
                 trigger OnAction()
                 var
-                    LocationsAPI: Codeunit "jdi BingMaps Locations API";
+                    LocationsAPI: Codeunit "jdi BingMaps API Locations";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
-                    APIVersion: Enum "jdi BingMaps FindLocationByAddress API";
-                    Param: Dictionary of [Enum "jdi BingMaps FindLocationByAddress Parameter", Text];
-                    FindLocationByAddressParam: Enum "jdi BingMaps FindLocationByAddress Parameter";
+                    APIVersion: Enum "jdi BingMaps API FindLocationByAddress";
+                    Param: Dictionary of [Enum "jdi BingMaps Parameter FindLocationByAddress", Text];
+                    FindLocationByAddressParam: Enum "jdi BingMaps Parameter FindLocationByAddress";
                 begin
                     APIVersion := APIVersion::v1;
 

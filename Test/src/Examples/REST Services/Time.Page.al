@@ -28,14 +28,14 @@ page 50201 "jdi BingMaps Test Time"
 
                 trigger OnAction()
                 var
-                    TimezoneAPI: Codeunit "jdi BingMaps Time Zone API";
+                    TimezoneAPI: Codeunit "jdi BingMaps API TimeZone";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
-                    APIVersion: Enum "jdi BingMaps FindTimeZone API";
-                    Param: Dictionary of [Enum "jdi BingMaps FindTimeZone Parameter", Text];
-                    FindTimeZoneParam: Enum "jdi BingMaps FindTimeZone Parameter";
+                    APIVersion: Enum "jdi BingMaps API FindTimeZone";
+                    Param: Dictionary of [Enum "jdi BingMaps Parameter FindTimeZone", Text];
+                    FindTimeZoneParam: Enum "jdi BingMaps Parameter FindTimeZone";
                 begin
                     APIVersion := APIVersion::v1;
 
@@ -69,14 +69,14 @@ page 50201 "jdi BingMaps Test Time"
 
                 trigger OnAction()
                 var
-                    TimezoneAPI: Codeunit "jdi BingMaps Time Zone API";
+                    TimezoneAPI: Codeunit "jdi BingMaps API TimeZone";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
-                    APIVersion: Enum "jdi BingMaps ConvertTimeZone API";
-                    Param: Dictionary of [Enum "jdi BingMaps ConvertTimeZone Parameter", Text];
-                    ConvertTimeZoneParam: Enum "jdi BingMaps ConvertTimeZone Parameter";
+                    APIVersion: Enum "jdi BingMaps API ConvertTimeZone";
+                    Param: Dictionary of [Enum "jdi BingMaps Parameter ConvertTimeZone", Text];
+                    ConvertTimeZoneParam: Enum "jdi BingMaps Parameter ConvertTimeZone";
                 begin
                     APIVersion := APIVersion::v1;
 
@@ -113,14 +113,14 @@ page 50201 "jdi BingMaps Test Time"
 
                 trigger OnAction()
                 var
-                    TimezoneAPI: Codeunit "jdi BingMaps Time Zone API";
+                    TimezoneAPI: Codeunit "jdi BingMaps API TimeZone";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
-                    APIVersion: Enum "jdi BingMaps ListTimeZones API";
-                    Param: Dictionary of [Enum "jdi BingMaps ListTimeZones Parameter", Text];
-                    ListTimeZoneParam: Enum "jdi BingMaps ListTimeZones Parameter";
+                    APIVersion: Enum "jdi BingMaps API ListTimeZones";
+                    Param: Dictionary of [Enum "jdi BingMaps Parameter ListTimeZones", Text];
+                    ListTimeZoneParam: Enum "jdi BingMaps Parameter ListTimeZones";
                 begin
                     APIVersion := APIVersion::v1;
 

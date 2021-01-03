@@ -28,14 +28,14 @@ page 50204 "jdi BingMaps Test TrafficIn"
 
                 trigger OnAction()
                 var
-                    TrafficAPI: Codeunit "jdi BingMaps Traffic API";
+                    TrafficAPI: Codeunit "jdi BingMaps API Traffic";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
-                    APIVersion: Enum "jdi BingMaps GetTrafficIncidents API";
-                    Param: Dictionary of [Enum "jdi BingMaps GetTrafficIncidents Parameter", Text];
-                    GetTrafficIncidentsParam: Enum "jdi BingMaps GetTrafficIncidents Parameter";
+                    APIVersion: Enum "jdi BingMaps API GetTrafficIncidents";
+                    Param: Dictionary of [Enum "jdi BingMaps Parameter GetTrafficIncidents", Text];
+                    GetTrafficIncidentsParam: Enum "jdi BingMaps Parameter GetTrafficIncidents";
                 begin
                     APIVersion := APIVersion::v1;
 

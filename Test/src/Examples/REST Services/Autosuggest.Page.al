@@ -34,9 +34,9 @@ page 50203 "jdi BingMaps Test Autosuggest"
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;
 
-                    APIVerion: Enum "jdi BingMaps Autosuggest API";
-                    Param: Dictionary of [Enum "jdi BingMaps Autosuggest Parameter", Text];
-                    AutosuggestParam: Enum "jdi BingMaps Autosuggest Parameter";
+                    APIVerion: Enum "jdi BingMaps API Autosuggest";
+                    Param: Dictionary of [Enum "jdi BingMaps Parameter Autosuggest", Text];
+                    AutosuggestParam: Enum "jdi BingMaps Parameter Autosuggest";
                 begin
                     APIVerion := APIVerion::v1;
 
