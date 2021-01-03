@@ -1,6 +1,7 @@
 codeunit 50024 "jdi BingMaps GetElevPolylinev1" implements "jdi BingMaps IGetElevationPolyline"
 {
-    procedure GetElevationPolyline(Parameter: Dictionary of [enum "jdi BingMaps GetElevationPolyline Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
+    Access = Internal;
+    procedure GetElevationPolyline(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationPolyline", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
@@ -14,7 +15,7 @@ codeunit 50024 "jdi BingMaps GetElevPolylinev1" implements "jdi BingMaps IGetEle
         exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
     end;
 
-    procedure GetElevationPolyline(Parameter: Dictionary of [enum "jdi BingMaps GetElevationPolyline Parameter", Text]; var JsonResponse: JsonObject): Boolean;
+    procedure GetElevationPolyline(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationPolyline", Text]; var JsonResponse: JsonObject): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
@@ -23,11 +24,11 @@ codeunit 50024 "jdi BingMaps GetElevPolylinev1" implements "jdi BingMaps IGetEle
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
-    procedure GetElevationPolyline(Parameter: Dictionary of [enum "jdi BingMaps GetElevationPolyline Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
+    procedure GetElevationPolyline(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationPolyline", Text]; var XmlResponse: XmlDocument): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
-        GetElevationPolylineParameter: Enum "jdi BingMaps GetElevationPolyline Parameter";
+        GetElevationPolylineParameter: Enum "jdi BingMaps Parameter GetElevationPolyline";
     begin
         if not Parameter.ContainsKey(GetElevationPolylineParameter::output) then
             Parameter.Add(GetElevationPolylineParameter::output, 'xml');
@@ -37,10 +38,10 @@ codeunit 50024 "jdi BingMaps GetElevPolylinev1" implements "jdi BingMaps IGetEle
     end;
 
 
-    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps GetElevationPolyline Parameter", Text]): Text
+    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationPolyline", Text]): Text
     var
-        ParamKeys: List of [Enum "jdi BingMaps GetElevationPolyline Parameter"];
-        GetElevationPolylineParameter: Enum "jdi BingMaps GetElevationPolyline Parameter";
+        ParamKeys: List of [Enum "jdi BingMaps Parameter GetElevationPolyline"];
+        GetElevationPolylineParameter: Enum "jdi BingMaps Parameter GetElevationPolyline";
         TxtBuilder: TextBuilder;
     begin
         ParamKeys := Parameter.Keys;
@@ -50,7 +51,7 @@ codeunit 50024 "jdi BingMaps GetElevPolylinev1" implements "jdi BingMaps IGetEle
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
 
-    local procedure GetEnumName(Parameter: Enum "jdi BingMaps GetElevationPolyline Parameter"): Text
+    local procedure GetEnumName(Parameter: Enum "jdi BingMaps Parameter GetElevationPolyline"): Text
     var
         OrdinalValue: Integer;
         Index: Integer;

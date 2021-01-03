@@ -1,6 +1,8 @@
 codeunit 50016 "jdi BingMaps FindLocByQuery v1" implements "jdi BingMaps IFindLocationByQuery"
 {
-    procedure FindLocationByQuery(Parameter: Dictionary of [enum "jdi BingMaps FindLocationByQuery Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
+    Access = Internal;
+
+    procedure FindLocationByQuery(Parameter: Dictionary of [enum "jdi BingMaps Parameter FindLocationByQuery", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
@@ -15,7 +17,7 @@ codeunit 50016 "jdi BingMaps FindLocByQuery v1" implements "jdi BingMaps IFindLo
     end;
 
 
-    procedure FindLocationByQuery(Parameter: Dictionary of [enum "jdi BingMaps FindLocationByQuery Parameter", Text]; var JsonResponse: JsonObject): Boolean;
+    procedure FindLocationByQuery(Parameter: Dictionary of [enum "jdi BingMaps Parameter FindLocationByQuery", Text]; var JsonResponse: JsonObject): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
@@ -24,11 +26,11 @@ codeunit 50016 "jdi BingMaps FindLocByQuery v1" implements "jdi BingMaps IFindLo
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
-    procedure FindLocationByQuery(Parameter: Dictionary of [enum "jdi BingMaps FindLocationByQuery Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
+    procedure FindLocationByQuery(Parameter: Dictionary of [enum "jdi BingMaps Parameter FindLocationByQuery", Text]; var XmlResponse: XmlDocument): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
-        FindLocationByQueryParameter: Enum "jdi BingMaps FindLocationByQuery Parameter";
+        FindLocationByQueryParameter: Enum "jdi BingMaps Parameter FindLocationByQuery";
     begin
         if not Parameter.ContainsKey(FindLocationByQueryParameter::output) then
             Parameter.Add(FindLocationByQueryParameter::output, 'xml');
@@ -37,10 +39,10 @@ codeunit 50016 "jdi BingMaps FindLocByQuery v1" implements "jdi BingMaps IFindLo
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, XmlResponse));
     end;
 
-    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps FindLocationByQuery Parameter", Text]): Text
+    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Parameter FindLocationByQuery", Text]): Text
     var
-        ParamKeys: List of [Enum "jdi BingMaps FindLocationByQuery Parameter"];
-        FindLocationByQueryParameter: Enum "jdi BingMaps FindLocationByQuery Parameter";
+        ParamKeys: List of [Enum "jdi BingMaps Parameter FindLocationByQuery"];
+        FindLocationByQueryParameter: Enum "jdi BingMaps Parameter FindLocationByQuery";
         TxtBuilder: TextBuilder;
     begin
         ParamKeys := Parameter.Keys;
@@ -50,7 +52,7 @@ codeunit 50016 "jdi BingMaps FindLocByQuery v1" implements "jdi BingMaps IFindLo
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
 
-    local procedure GetEnumName(Parameter: Enum "jdi BingMaps FindLocationByQuery Parameter"): Text
+    local procedure GetEnumName(Parameter: Enum "jdi BingMaps Parameter FindLocationByQuery"): Text
     var
         OrdinalValue: Integer;
         Index: Integer;

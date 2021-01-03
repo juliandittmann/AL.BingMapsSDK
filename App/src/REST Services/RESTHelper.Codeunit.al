@@ -1,6 +1,6 @@
 codeunit 50015 "jdi BingMaps REST Helper"
 {
-    Access = Internal;
+    Access = Public;
 
     procedure InvokeWebRequest(Url: Text; var Response: HttpResponseMessage): Boolean
     var

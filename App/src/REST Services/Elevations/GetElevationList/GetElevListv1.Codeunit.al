@@ -1,6 +1,7 @@
 codeunit 50022 "jdi BingMaps GetElev. List v1" implements "jdi BingMaps IGetElevationList"
 {
-    procedure GetElevationList(Parameter: Dictionary of [enum "jdi BingMaps GetElevationList Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
+    Access = Internal;
+    procedure GetElevationList(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationList", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
@@ -14,7 +15,7 @@ codeunit 50022 "jdi BingMaps GetElev. List v1" implements "jdi BingMaps IGetElev
         exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
     end;
 
-    procedure GetElevationList(Parameter: Dictionary of [enum "jdi BingMaps GetElevationList Parameter", Text]; var JsonResponse: JsonObject): Boolean;
+    procedure GetElevationList(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationList", Text]; var JsonResponse: JsonObject): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
@@ -23,11 +24,11 @@ codeunit 50022 "jdi BingMaps GetElev. List v1" implements "jdi BingMaps IGetElev
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
-    procedure GetElevationList(Parameter: Dictionary of [enum "jdi BingMaps GetElevationList Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
+    procedure GetElevationList(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationList", Text]; var XmlResponse: XmlDocument): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
-        GetElevationListParameter: Enum "jdi BingMaps GetElevationList Parameter";
+        GetElevationListParameter: Enum "jdi BingMaps Parameter GetElevationList";
     begin
         if not Parameter.ContainsKey(GetElevationListParameter::output) then
             Parameter.Add(GetElevationListParameter::output, 'xml');
@@ -37,10 +38,10 @@ codeunit 50022 "jdi BingMaps GetElev. List v1" implements "jdi BingMaps IGetElev
     end;
 
 
-    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps GetElevationList Parameter", Text]): Text
+    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationList", Text]): Text
     var
-        ParamKeys: List of [Enum "jdi BingMaps GetElevationList Parameter"];
-        GetElevationListParameter: Enum "jdi BingMaps GetElevationList Parameter";
+        ParamKeys: List of [Enum "jdi BingMaps Parameter GetElevationList"];
+        GetElevationListParameter: Enum "jdi BingMaps Parameter GetElevationList";
         TxtBuilder: TextBuilder;
     begin
         ParamKeys := Parameter.Keys;
@@ -50,7 +51,7 @@ codeunit 50022 "jdi BingMaps GetElev. List v1" implements "jdi BingMaps IGetElev
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
 
-    local procedure GetEnumName(Parameter: Enum "jdi BingMaps GetElevationList Parameter"): Text
+    local procedure GetEnumName(Parameter: Enum "jdi BingMaps Parameter GetElevationList"): Text
     var
         OrdinalValue: Integer;
         Index: Integer;

@@ -1,6 +1,7 @@
 codeunit 50025 "jdi BingMaps GetElev.Sealvl v1" implements "jdi BingMaps IGetElevationSealevel"
 {
-    procedure GetElevationSealevel(Parameter: Dictionary of [enum "jdi BingMaps GetElevationSealevel Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
+    Access = Internal;
+    procedure GetElevationSealevel(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationSealevel", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
@@ -14,7 +15,7 @@ codeunit 50025 "jdi BingMaps GetElev.Sealvl v1" implements "jdi BingMaps IGetEle
         exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
     end;
 
-    procedure GetElevationSealevel(Parameter: Dictionary of [enum "jdi BingMaps GetElevationSealevel Parameter", Text]; var JsonResponse: JsonObject): Boolean;
+    procedure GetElevationSealevel(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationSealevel", Text]; var JsonResponse: JsonObject): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
@@ -23,11 +24,11 @@ codeunit 50025 "jdi BingMaps GetElev.Sealvl v1" implements "jdi BingMaps IGetEle
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
-    procedure GetElevationSealevel(Parameter: Dictionary of [enum "jdi BingMaps GetElevationSealevel Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
+    procedure GetElevationSealevel(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationSealevel", Text]; var XmlResponse: XmlDocument): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
-        GetElevationSealevelParameter: Enum "jdi BingMaps GetElevationSealevel Parameter";
+        GetElevationSealevelParameter: Enum "jdi BingMaps Parameter GetElevationSealevel";
     begin
         if not Parameter.ContainsKey(GetElevationSealevelParameter::output) then
             Parameter.Add(GetElevationSealevelParameter::output, 'xml');
@@ -37,10 +38,10 @@ codeunit 50025 "jdi BingMaps GetElev.Sealvl v1" implements "jdi BingMaps IGetEle
     end;
 
 
-    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps GetElevationSealevel Parameter", Text]): Text
+    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationSealevel", Text]): Text
     var
-        ParamKeys: List of [Enum "jdi BingMaps GetElevationSealevel Parameter"];
-        GetElevationSealevelParameter: Enum "jdi BingMaps GetElevationSealevel Parameter";
+        ParamKeys: List of [Enum "jdi BingMaps Parameter GetElevationSealevel"];
+        GetElevationSealevelParameter: Enum "jdi BingMaps Parameter GetElevationSealevel";
         TxtBuilder: TextBuilder;
     begin
         ParamKeys := Parameter.Keys;
@@ -50,7 +51,7 @@ codeunit 50025 "jdi BingMaps GetElev.Sealvl v1" implements "jdi BingMaps IGetEle
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
 
-    local procedure GetEnumName(Parameter: Enum "jdi BingMaps GetElevationSealevel Parameter"): Text
+    local procedure GetEnumName(Parameter: Enum "jdi BingMaps Parameter GetElevationSealevel"): Text
     var
         OrdinalValue: Integer;
         Index: Integer;

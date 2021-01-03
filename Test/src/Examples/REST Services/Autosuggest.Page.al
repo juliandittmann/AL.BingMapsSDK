@@ -29,7 +29,7 @@ page 50203 "jdi BingMaps Test Autosuggest"
 
                 trigger OnAction()
                 var
-                    AutosuggestAPI: Codeunit "jdi BingMaps Autosuggest API";
+                    AutosuggestAPI: Codeunit "jdi BingMaps API Autosuggest";
                     JResponse: JsonObject;
                     XmlResponse: XmlDocument;
                     HttpResponse: HttpResponseMessage;

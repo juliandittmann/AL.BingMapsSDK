@@ -1,6 +1,8 @@
 codeunit 50013 "jdi BingMaps ListTimeZones v1" implements "jdi BingMaps IListTimeZones"
 {
-    procedure ListTimeZones(Parameter: Dictionary of [enum "jdi BingMaps ListTimeZones Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
+    Access = Internal;
+
+    procedure ListTimeZones(Parameter: Dictionary of [enum "jdi BingMaps Parameter ListTimeZones", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
@@ -12,7 +14,7 @@ codeunit 50013 "jdi BingMaps ListTimeZones v1" implements "jdi BingMaps IListTim
         exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
     end;
 
-    procedure ListTimeZones(Parameter: Dictionary of [enum "jdi BingMaps ListTimeZones Parameter", Text]; var JsonResponse: JsonObject): Boolean;
+    procedure ListTimeZones(Parameter: Dictionary of [enum "jdi BingMaps Parameter ListTimeZones", Text]; var JsonResponse: JsonObject): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
@@ -21,11 +23,11 @@ codeunit 50013 "jdi BingMaps ListTimeZones v1" implements "jdi BingMaps IListTim
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
-    procedure ListTimeZones(Parameter: Dictionary of [enum "jdi BingMaps ListTimeZones Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
+    procedure ListTimeZones(Parameter: Dictionary of [enum "jdi BingMaps Parameter ListTimeZones", Text]; var XmlResponse: XmlDocument): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
-        ListTimeZonesParam: Enum "jdi BingMaps ListTimeZones Parameter";
+        ListTimeZonesParam: Enum "jdi BingMaps Parameter ListTimeZones";
     begin
         if not Parameter.ContainsKey(ListTimeZonesParam::output) then
             Parameter.Add(ListTimeZonesParam::output, 'xml');
@@ -35,10 +37,10 @@ codeunit 50013 "jdi BingMaps ListTimeZones v1" implements "jdi BingMaps IListTim
     end;
 
 
-    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps ListTimeZones Parameter", Text]): Text
+    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Parameter ListTimeZones", Text]): Text
     var
-        ParamKeys: List of [Enum "jdi BingMaps ListTimeZones Parameter"];
-        ListTimeZonesParameter: Enum "jdi BingMaps ListTimeZones Parameter";
+        ParamKeys: List of [Enum "jdi BingMaps Parameter ListTimeZones"];
+        ListTimeZonesParameter: Enum "jdi BingMaps Parameter ListTimeZones";
         TxtBuilder: TextBuilder;
     begin
         ParamKeys := Parameter.Keys;
@@ -48,7 +50,7 @@ codeunit 50013 "jdi BingMaps ListTimeZones v1" implements "jdi BingMaps IListTim
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
 
-    local procedure GetEnumName(Parameter: Enum "jdi BingMaps ListTimeZones Parameter"): Text
+    local procedure GetEnumName(Parameter: Enum "jdi BingMaps Parameter ListTimeZones"): Text
     var
         OrdinalValue: Integer;
         Index: Integer;
@@ -58,9 +60,9 @@ codeunit 50013 "jdi BingMaps ListTimeZones v1" implements "jdi BingMaps IListTim
         exit(Parameter.Names.Get(Index));
     end;
 
-    local procedure BuildBaseUrl(Parameter: Dictionary of [enum "jdi BingMaps ListTimeZones Parameter", Text]) BaseUrl: Text
+    local procedure BuildBaseUrl(Parameter: Dictionary of [enum "jdi BingMaps Parameter ListTimeZones", Text]) BaseUrl: Text
     var
-        ListTimeZonesParamenter: Enum "jdi BingMaps ListTimeZones Parameter";
+        ListTimeZonesParamenter: Enum "jdi BingMaps Parameter ListTimeZones";
 
         BaseUriLbl: Label 'https://dev.virtualearth.net/REST/v1/TimeZone/', Locked = true;
         BaseUriListtLbl: Label 'https://dev.virtualearth.net/REST/v1/TimeZone/List', Locked = true;
