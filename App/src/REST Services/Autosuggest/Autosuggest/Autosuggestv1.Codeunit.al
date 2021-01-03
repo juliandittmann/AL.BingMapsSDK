@@ -38,7 +38,6 @@ codeunit 50020 "jdi BingMaps Autosuggest v1" implements "jdi BingMaps IAutosugge
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Autosuggest Parameter", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps Autosuggest Parameter"];
         AutosuggestParameter: Enum "jdi BingMaps Autosuggest Parameter";
         TxtBuilder: TextBuilder;

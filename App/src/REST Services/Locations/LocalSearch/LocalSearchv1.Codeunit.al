@@ -38,7 +38,6 @@ codeunit 50018 "jdi BingMaps LocalSearch v1" implements "jdi BingMaps ILocalSear
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps LocalSearch Parameter", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps LocalSearch Parameter"];
         LocalSearchParameter: Enum "jdi BingMaps LocalSearch Parameter";
         TxtBuilder: TextBuilder;

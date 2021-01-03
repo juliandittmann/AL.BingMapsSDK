@@ -52,7 +52,6 @@ codeunit 50027 "jdi BingMaps CalculateRoute v1" implements "jdi BingMaps ICalcul
 
     local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps CalculateRoute Parameter", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
         ParamKeys: List of [Enum "jdi BingMaps CalculateRoute Parameter"];
         CalculateRouteParameter: Enum "jdi BingMaps CalculateRoute Parameter";
         TxtBuilder: TextBuilder;
