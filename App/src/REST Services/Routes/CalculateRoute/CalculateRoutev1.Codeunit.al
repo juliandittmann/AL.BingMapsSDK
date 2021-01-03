@@ -1,7 +1,7 @@
 codeunit 50027 "jdi BingMaps CalculateRoute v1" implements "jdi BingMaps ICalculateRoute"
 {
     Access = Internal;
-    procedure CalculateRoute(Parameter: Dictionary of [enum "jdi BingMaps CalculateRoute Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
+    procedure CalculateRoute(Parameter: Dictionary of [enum "jdi BingMaps Parameter CalculateRoute", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
@@ -13,7 +13,7 @@ codeunit 50027 "jdi BingMaps CalculateRoute v1" implements "jdi BingMaps ICalcul
         exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
     end;
 
-    procedure CalculateRoute(Parameter: Dictionary of [enum "jdi BingMaps CalculateRoute Parameter", Text]; var JsonResponse: JsonObject): Boolean;
+    procedure CalculateRoute(Parameter: Dictionary of [enum "jdi BingMaps Parameter CalculateRoute", Text]; var JsonResponse: JsonObject): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
@@ -22,11 +22,11 @@ codeunit 50027 "jdi BingMaps CalculateRoute v1" implements "jdi BingMaps ICalcul
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
-    procedure CalculateRoute(Parameter: Dictionary of [enum "jdi BingMaps CalculateRoute Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
+    procedure CalculateRoute(Parameter: Dictionary of [enum "jdi BingMaps Parameter CalculateRoute", Text]; var XmlResponse: XmlDocument): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
-        CalculateRouteParameter: Enum "jdi BingMaps CalculateRoute Parameter";
+        CalculateRouteParameter: Enum "jdi BingMaps Parameter CalculateRoute";
     begin
         if not Parameter.ContainsKey(CalculateRouteParameter::output) then
             Parameter.Add(CalculateRouteParameter::output, 'xml');
@@ -37,9 +37,9 @@ codeunit 50027 "jdi BingMaps CalculateRoute v1" implements "jdi BingMaps ICalcul
 
 
 
-    local procedure BuildBaseUrl(var Parameter: Dictionary of [enum "jdi BingMaps CalculateRoute Parameter", Text]) BaseUrl: Text
+    local procedure BuildBaseUrl(var Parameter: Dictionary of [enum "jdi BingMaps Parameter CalculateRoute", Text]) BaseUrl: Text
     var
-        CalculateRouteParameter: Enum "jdi BingMaps CalculateRoute Parameter";
+        CalculateRouteParameter: Enum "jdi BingMaps Parameter CalculateRoute";
 
         BaseUriLbl: Label 'https://dev.virtualearth.net/REST/V1/Routes', Locked = true;
     begin
@@ -50,16 +50,12 @@ codeunit 50027 "jdi BingMaps CalculateRoute v1" implements "jdi BingMaps ICalcul
         end;
     end;
 
-    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps CalculateRoute Parameter", Text]): Text
+    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Parameter CalculateRoute", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
-        ParamKeys: List of [Enum "jdi BingMaps CalculateRoute Parameter"];
-        CalculateRouteParameter: Enum "jdi BingMaps CalculateRoute Parameter";
+        ParamKeys: List of [Enum "jdi BingMaps Parameter CalculateRoute"];
+        CalculateRouteParameter: Enum "jdi BingMaps Parameter CalculateRoute";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(CalculateRouteParameter::"key") then
-            Parameter.Add(CalculateRouteParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach CalculateRouteParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(CalculateRouteParameter) + '=' + Parameter.Get(CalculateRouteParameter) + '&');
@@ -67,7 +63,7 @@ codeunit 50027 "jdi BingMaps CalculateRoute v1" implements "jdi BingMaps ICalcul
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
 
-    local procedure GetEnumName(Parameter: Enum "jdi BingMaps CalculateRoute Parameter"): Text
+    local procedure GetEnumName(Parameter: Enum "jdi BingMaps Parameter CalculateRoute"): Text
     var
         OrdinalValue: Integer;
         Index: Integer;

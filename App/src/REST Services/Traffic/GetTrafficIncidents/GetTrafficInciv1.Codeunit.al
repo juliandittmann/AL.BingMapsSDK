@@ -1,6 +1,8 @@
 codeunit 50021 "jdi BingMaps GetTrafficInci v1" implements "jdi BingMaps IGetTrafficIncidents"
 {
-    procedure GetTrafficIncidents(Parameter: Dictionary of [enum "jdi BingMaps GetTrafficIncidents Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
+    Access = Internal;
+
+    procedure GetTrafficIncidents(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetTrafficIncidents", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
@@ -12,7 +14,7 @@ codeunit 50021 "jdi BingMaps GetTrafficInci v1" implements "jdi BingMaps IGetTra
         exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
     end;
 
-    procedure GetTrafficIncidents(Parameter: Dictionary of [enum "jdi BingMaps GetTrafficIncidents Parameter", Text]; var JsonResponse: JsonObject): Boolean;
+    procedure GetTrafficIncidents(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetTrafficIncidents", Text]; var JsonResponse: JsonObject): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
@@ -21,11 +23,11 @@ codeunit 50021 "jdi BingMaps GetTrafficInci v1" implements "jdi BingMaps IGetTra
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
-    procedure GetTrafficIncidents(Parameter: Dictionary of [enum "jdi BingMaps GetTrafficIncidents Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
+    procedure GetTrafficIncidents(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetTrafficIncidents", Text]; var XmlResponse: XmlDocument): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
-        GetTrafficIncidentsParam: Enum "jdi BingMaps GetTrafficIncidents Parameter";
+        GetTrafficIncidentsParam: Enum "jdi BingMaps Parameter GetTrafficIncidents";
     begin
         if not Parameter.ContainsKey(GetTrafficIncidentsParam::output) then
             Parameter.Add(GetTrafficIncidentsParam::output, 'xml');
@@ -34,16 +36,12 @@ codeunit 50021 "jdi BingMaps GetTrafficInci v1" implements "jdi BingMaps IGetTra
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, XmlResponse));
     end;
 
-    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps GetTrafficIncidents Parameter", Text]): Text
+    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetTrafficIncidents", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
-        ParamKeys: List of [Enum "jdi BingMaps GetTrafficIncidents Parameter"];
-        GetTrafficIncidentsParameter: Enum "jdi BingMaps GetTrafficIncidents Parameter";
+        ParamKeys: List of [Enum "jdi BingMaps Parameter GetTrafficIncidents"];
+        GetTrafficIncidentsParameter: Enum "jdi BingMaps Parameter GetTrafficIncidents";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(GetTrafficIncidentsParameter::"key") then
-            Parameter.Add(GetTrafficIncidentsParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach GetTrafficIncidentsParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(GetTrafficIncidentsParameter) + '=' + Parameter.Get(GetTrafficIncidentsParameter) + '&');
@@ -51,7 +49,7 @@ codeunit 50021 "jdi BingMaps GetTrafficInci v1" implements "jdi BingMaps IGetTra
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
 
-    local procedure GetEnumName(GetTrafficIncidentsParameter: Enum "jdi BingMaps GetTrafficIncidents Parameter"): Text
+    local procedure GetEnumName(GetTrafficIncidentsParameter: Enum "jdi BingMaps Parameter GetTrafficIncidents"): Text
     var
         OrdinalValue: Integer;
         Index: Integer;
@@ -62,9 +60,9 @@ codeunit 50021 "jdi BingMaps GetTrafficInci v1" implements "jdi BingMaps IGetTra
     end;
 
 
-    local procedure BuildBaseUrl(var Parameter: Dictionary of [enum "jdi BingMaps GetTrafficIncidents Parameter", Text]) BaseUrl: Text
+    local procedure BuildBaseUrl(var Parameter: Dictionary of [enum "jdi BingMaps Parameter GetTrafficIncidents", Text]) BaseUrl: Text
     var
-        GetTrafficIncidentsParamenter: Enum "jdi BingMaps GetTrafficIncidents Parameter";
+        GetTrafficIncidentsParamenter: Enum "jdi BingMaps Parameter GetTrafficIncidents";
 
         BaseUriLbl: Label 'https://dev.virtualearth.net/REST/v1/Traffic/Incidents', Locked = true;
     begin

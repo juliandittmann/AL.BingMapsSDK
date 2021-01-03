@@ -1,7 +1,7 @@
 codeunit 50017 "jdi BingMaps LocRecognition v1" implements "jdi BingMaps ILocationRecognition"
 {
     Access = Internal;
-    procedure LocationRecognition(Parameter: Dictionary of [enum "jdi BingMaps LocationRecognition Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
+    procedure LocationRecognition(Parameter: Dictionary of [enum "jdi BingMaps Parameter LocationRecognition", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
@@ -13,7 +13,7 @@ codeunit 50017 "jdi BingMaps LocRecognition v1" implements "jdi BingMaps ILocati
         exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
     end;
 
-    procedure LocationRecognition(Parameter: Dictionary of [enum "jdi BingMaps LocationRecognition Parameter", Text]; var JsonResponse: JsonObject): Boolean;
+    procedure LocationRecognition(Parameter: Dictionary of [enum "jdi BingMaps Parameter LocationRecognition", Text]; var JsonResponse: JsonObject): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
@@ -22,11 +22,11 @@ codeunit 50017 "jdi BingMaps LocRecognition v1" implements "jdi BingMaps ILocati
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
-    procedure LocationRecognition(Parameter: Dictionary of [enum "jdi BingMaps LocationRecognition Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
+    procedure LocationRecognition(Parameter: Dictionary of [enum "jdi BingMaps Parameter LocationRecognition", Text]; var XmlResponse: XmlDocument): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
-        LocationRecognitionParameter: Enum "jdi BingMaps LocationRecognition Parameter";
+        LocationRecognitionParameter: Enum "jdi BingMaps Parameter LocationRecognition";
     begin
         if not Parameter.ContainsKey(LocationRecognitionParameter::output) then
             Parameter.Add(LocationRecognitionParameter::output, 'xml');
@@ -35,9 +35,9 @@ codeunit 50017 "jdi BingMaps LocRecognition v1" implements "jdi BingMaps ILocati
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, XmlResponse));
     end;
 
-    local procedure BuildBaseUrl(Parameter: Dictionary of [enum "jdi BingMaps LocationRecognition Parameter", Text]) BaseUrl: Text
+    local procedure BuildBaseUrl(Parameter: Dictionary of [enum "jdi BingMaps Parameter LocationRecognition", Text]) BaseUrl: Text
     var
-        LocationRecognitionParamenter: Enum "jdi BingMaps LocationRecognition Parameter";
+        LocationRecognitionParamenter: Enum "jdi BingMaps Parameter LocationRecognition";
 
         BaseUriLbl: Label 'https://dev.virtualearth.net/REST/v1/LocationRecog/%1', Locked = true;
     begin
@@ -47,16 +47,12 @@ codeunit 50017 "jdi BingMaps LocRecognition v1" implements "jdi BingMaps ILocati
         end;
     end;
 
-    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps LocationRecognition Parameter", Text]): Text
+    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Parameter LocationRecognition", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
-        ParamKeys: List of [Enum "jdi BingMaps LocationRecognition Parameter"];
-        LocationRecognitionParameter: Enum "jdi BingMaps LocationRecognition Parameter";
+        ParamKeys: List of [Enum "jdi BingMaps Parameter LocationRecognition"];
+        LocationRecognitionParameter: Enum "jdi BingMaps Parameter LocationRecognition";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(LocationRecognitionParameter::"key") then
-            Parameter.Add(LocationRecognitionParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach LocationRecognitionParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(LocationRecognitionParameter) + '=' + Parameter.Get(LocationRecognitionParameter) + '&');
@@ -64,7 +60,7 @@ codeunit 50017 "jdi BingMaps LocRecognition v1" implements "jdi BingMaps ILocati
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
 
-    local procedure GetEnumName(Parameter: Enum "jdi BingMaps LocationRecognition Parameter"): Text
+    local procedure GetEnumName(Parameter: Enum "jdi BingMaps Parameter LocationRecognition"): Text
     var
         OrdinalValue: Integer;
         Index: Integer;

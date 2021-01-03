@@ -1,6 +1,6 @@
 codeunit 50015 "jdi BingMaps REST Helper"
 {
-    Access = Internal;
+    Access = Public;
 
     procedure InvokeWebRequest(Url: Text; var Response: HttpResponseMessage): Boolean
     var
@@ -31,14 +31,4 @@ codeunit 50015 "jdi BingMaps REST Helper"
             exit(XmlDocument.ReadFrom(InStr, ResponseXml));
         end;
     end;
-
-
-    procedure GetDefaultAPIKey(): Text //TODO: does not belong here 
-    var
-        BingMapsSetup: Record "jdi BingMaps Setup";
-    begin
-        if BingMapsSetup.Get() then
-            exit(BingMapsSetup.GetDefaultAPIKey());
-    end;
-
 }

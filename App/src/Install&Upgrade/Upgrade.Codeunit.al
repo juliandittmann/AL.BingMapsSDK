@@ -1,6 +1,7 @@
 codeunit 50001 "jdi BingMaps Upgrade"
 {
     Subtype = Upgrade;
+    Access = Internal;
 
     trigger OnCheckPreconditionsPerCompany()
     begin

@@ -1,6 +1,8 @@
 codeunit 50012 "jdi BingMaps ConvertTimeZonev1" implements "jdi BingMaps IConvertTimeZone"
 {
-    procedure ConvertTimeZone(Parameter: Dictionary of [enum "jdi BingMaps ConvertTimeZone Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
+    Access = Internal;
+
+    procedure ConvertTimeZone(Parameter: Dictionary of [enum "jdi BingMaps Parameter ConvertTimeZone", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
@@ -14,7 +16,7 @@ codeunit 50012 "jdi BingMaps ConvertTimeZonev1" implements "jdi BingMaps IConver
         exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
     end;
 
-    procedure ConvertTimeZone(Parameter: Dictionary of [enum "jdi BingMaps ConvertTimeZone Parameter", Text]; var JsonResponse: JsonObject): Boolean;
+    procedure ConvertTimeZone(Parameter: Dictionary of [enum "jdi BingMaps Parameter ConvertTimeZone", Text]; var JsonResponse: JsonObject): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
@@ -23,11 +25,11 @@ codeunit 50012 "jdi BingMaps ConvertTimeZonev1" implements "jdi BingMaps IConver
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
-    procedure ConvertTimeZone(Parameter: Dictionary of [enum "jdi BingMaps ConvertTimeZone Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
+    procedure ConvertTimeZone(Parameter: Dictionary of [enum "jdi BingMaps Parameter ConvertTimeZone", Text]; var XmlResponse: XmlDocument): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
-        ConvertTimeZoneParameter: Enum "jdi BingMaps ConvertTimeZone Parameter";
+        ConvertTimeZoneParameter: Enum "jdi BingMaps Parameter ConvertTimeZone";
     begin
         if not Parameter.ContainsKey(ConvertTimeZoneParameter::output) then
             Parameter.Add(ConvertTimeZoneParameter::output, 'xml');
@@ -37,16 +39,12 @@ codeunit 50012 "jdi BingMaps ConvertTimeZonev1" implements "jdi BingMaps IConver
     end;
 
 
-    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps ConvertTimeZone Parameter", Text]): Text
+    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Parameter ConvertTimeZone", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
-        ParamKeys: List of [Enum "jdi BingMaps ConvertTimeZone Parameter"];
-        ConvertTimeZoneParameter: Enum "jdi BingMaps ConvertTimeZone Parameter";
+        ParamKeys: List of [Enum "jdi BingMaps Parameter ConvertTimeZone"];
+        ConvertTimeZoneParameter: Enum "jdi BingMaps Parameter ConvertTimeZone";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(ConvertTimeZoneParameter::"key") then
-            Parameter.Add(ConvertTimeZoneParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach ConvertTimeZoneParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(ConvertTimeZoneParameter) + '=' + Parameter.Get(ConvertTimeZoneParameter) + '&');
@@ -54,7 +52,7 @@ codeunit 50012 "jdi BingMaps ConvertTimeZonev1" implements "jdi BingMaps IConver
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
 
-    local procedure GetEnumName(Parameter: Enum "jdi BingMaps ConvertTimeZone Parameter"): Text
+    local procedure GetEnumName(Parameter: Enum "jdi BingMaps Parameter ConvertTimeZone"): Text
     var
         OrdinalValue: Integer;
         Index: Integer;

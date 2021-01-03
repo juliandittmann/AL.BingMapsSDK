@@ -1,7 +1,7 @@
 codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTimeZone"
 {
     Access = Internal;
-    procedure FindTimeZone(Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
+    procedure FindTimeZone(Parameter: Dictionary of [enum "jdi BingMaps Parameter FindTimeZone", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
@@ -13,7 +13,7 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
         exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
     end;
 
-    procedure FindTimeZone(Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]; var JsonResponse: JsonObject): Boolean;
+    procedure FindTimeZone(Parameter: Dictionary of [enum "jdi BingMaps Parameter FindTimeZone", Text]; var JsonResponse: JsonObject): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
@@ -22,11 +22,11 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
-    procedure FindTimeZone(Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
+    procedure FindTimeZone(Parameter: Dictionary of [enum "jdi BingMaps Parameter FindTimeZone", Text]; var XmlResponse: XmlDocument): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
-        FindTimeZoneParam: Enum "jdi BingMaps FindTimeZone Parameter";
+        FindTimeZoneParam: Enum "jdi BingMaps Parameter FindTimeZone";
     begin
         if not Parameter.ContainsKey(FindTimeZoneParam::output) then
             Parameter.Add(FindTimeZoneParam::output, 'xml');
@@ -35,16 +35,12 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, XmlResponse));
     end;
 
-    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]): Text
+    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Parameter FindTimeZone", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
-        ParamKeys: List of [Enum "jdi BingMaps FindTimeZone Parameter"];
-        FindTimeZoneParameter: Enum "jdi BingMaps FindTimeZone Parameter";
+        ParamKeys: List of [Enum "jdi BingMaps Parameter FindTimeZone"];
+        FindTimeZoneParameter: Enum "jdi BingMaps Parameter FindTimeZone";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(FindTimeZoneParameter::"key") then
-            Parameter.Add(FindTimeZoneParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach FindTimeZoneParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(FindTimeZoneParameter) + '=' + Parameter.Get(FindTimeZoneParameter) + '&');
@@ -52,7 +48,7 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
 
-    local procedure GetEnumName(FindTimeZoneParameter: Enum "jdi BingMaps FindTimeZone Parameter"): Text
+    local procedure GetEnumName(FindTimeZoneParameter: Enum "jdi BingMaps Parameter FindTimeZone"): Text
     var
         OrdinalValue: Integer;
         Index: Integer;
@@ -62,10 +58,9 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
         exit(FindTimeZoneParameter.Names.Get(Index));
     end;
 
-
-    local procedure BuildBaseUrl(var Parameter: Dictionary of [enum "jdi BingMaps FindTimeZone Parameter", Text]) BaseUrl: Text
+    local procedure BuildBaseUrl(var Parameter: Dictionary of [enum "jdi BingMaps Parameter FindTimeZone", Text]) BaseUrl: Text
     var
-        FindTimeZoneParamenter: Enum "jdi BingMaps FindTimeZone Parameter";
+        FindTimeZoneParamenter: Enum "jdi BingMaps Parameter FindTimeZone";
 
         BaseUriLbl: Label 'https://dev.virtualearth.net/REST/v1/TimeZone/', Locked = true;
         BaseUriPointLbl: Label 'https://dev.virtualearth.net/REST/v1/TimeZone/%1', Locked = true;

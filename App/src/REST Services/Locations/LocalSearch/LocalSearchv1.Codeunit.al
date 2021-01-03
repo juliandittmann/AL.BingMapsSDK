@@ -1,6 +1,8 @@
 codeunit 50018 "jdi BingMaps LocalSearch v1" implements "jdi BingMaps ILocalSearch"
 {
-    procedure LocalSearch(Parameter: Dictionary of [enum "jdi BingMaps LocalSearch Parameter", Text]; var HttpResponse: HttpResponseMessage): Boolean;
+    Access = Internal;
+
+    procedure LocalSearch(Parameter: Dictionary of [enum "jdi BingMaps Parameter LocalSearch", Text]; var HttpResponse: HttpResponseMessage): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         UriBuilder: Codeunit "Uri Builder";
@@ -14,7 +16,7 @@ codeunit 50018 "jdi BingMaps LocalSearch v1" implements "jdi BingMaps ILocalSear
         exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
     end;
 
-    procedure LocalSearch(Parameter: Dictionary of [enum "jdi BingMaps LocalSearch Parameter", Text]; var JsonResponse: JsonObject): Boolean;
+    procedure LocalSearch(Parameter: Dictionary of [enum "jdi BingMaps Parameter LocalSearch", Text]; var JsonResponse: JsonObject): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
@@ -23,11 +25,11 @@ codeunit 50018 "jdi BingMaps LocalSearch v1" implements "jdi BingMaps ILocalSear
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, JsonResponse));
     end;
 
-    procedure LocalSearch(Parameter: Dictionary of [enum "jdi BingMaps LocalSearch Parameter", Text]; var XmlResponse: XmlDocument): Boolean;
+    procedure LocalSearch(Parameter: Dictionary of [enum "jdi BingMaps Parameter LocalSearch", Text]; var XmlResponse: XmlDocument): Boolean;
     var
         RESTHelper: Codeunit "jdi BingMaps REST Helper";
         HttpResponse: HttpResponseMessage;
-        LocationRecognitionParameter: Enum "jdi BingMaps LocalSearch Parameter";
+        LocationRecognitionParameter: Enum "jdi BingMaps Parameter LocalSearch";
     begin
         if not Parameter.ContainsKey(LocationRecognitionParameter::output) then
             Parameter.Add(LocationRecognitionParameter::output, 'xml');
@@ -36,16 +38,12 @@ codeunit 50018 "jdi BingMaps LocalSearch v1" implements "jdi BingMaps ILocalSear
         exit(RESTHelper.ProcessHttpResponseMessage(HttpResponse, XmlResponse));
     end;
 
-    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps LocalSearch Parameter", Text]): Text
+    local procedure GetQueryString(Parameter: Dictionary of [enum "jdi BingMaps Parameter LocalSearch", Text]): Text
     var
-        RESTHelper: Codeunit "jdi BingMaps REST Helper";
-        ParamKeys: List of [Enum "jdi BingMaps LocalSearch Parameter"];
-        LocalSearchParameter: Enum "jdi BingMaps LocalSearch Parameter";
+        ParamKeys: List of [Enum "jdi BingMaps Parameter LocalSearch"];
+        LocalSearchParameter: Enum "jdi BingMaps Parameter LocalSearch";
         TxtBuilder: TextBuilder;
     begin
-        if not Parameter.ContainsKey(LocalSearchParameter::"key") then
-            Parameter.Add(LocalSearchParameter::"key", RESTHelper.GetDefaultAPIKey());
-
         ParamKeys := Parameter.Keys;
         foreach LocalSearchParameter in ParamKeys do
             TxtBuilder.Append(GetEnumName(LocalSearchParameter) + '=' + Parameter.Get(LocalSearchParameter) + '&');
@@ -53,7 +51,7 @@ codeunit 50018 "jdi BingMaps LocalSearch v1" implements "jdi BingMaps ILocalSear
         exit(TxtBuilder.ToText().TrimEnd('&'));
     end;
 
-    local procedure GetEnumName(Parameter: Enum "jdi BingMaps LocalSearch Parameter"): Text
+    local procedure GetEnumName(Parameter: Enum "jdi BingMaps Parameter LocalSearch"): Text
     var
         OrdinalValue: Integer;
         Index: Integer;
