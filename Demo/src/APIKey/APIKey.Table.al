@@ -1,7 +1,7 @@
-table 50200 "jdi BingMaps Test API Key"
+table 50250 "jdi BingMaps Demo API Key"
 {
     DataClassification = AccountData;
-    LookupPageId = "jdi BingMaps Test API Key List";
+    LookupPageId = "jdi BingMaps Demo API Key List";
     Access = Internal;
 
     fields

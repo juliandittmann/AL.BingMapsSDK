@@ -1,13 +1,13 @@
-page 50207 "jdi BingMaps Test API Key List"
+page 50251 "jdi BingMaps Demo API Key List"
 {
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Administration;
 
-    Caption = 'Bing Maps SDK API Key List';
+    Caption = 'Bing Maps SDK Demo API Key List';
 
-    CardPageId = "jdi BingMaps Test API Key Card";
-    SourceTable = "jdi BingMaps Test API Key";
+    CardPageId = "jdi BingMaps Demo API Key Card";
+    SourceTable = "jdi BingMaps Demo API Key";
     Editable = false;
 
     layout

@@ -1,10 +1,10 @@
-page 50206 "jdi BingMaps Test API Key Card"
+page 50250 "jdi BingMaps Demo API Key Card"
 {
     PageType = Card;
     UsageCategory = None;
-    SourceTable = "jdi BingMaps Test API Key";
+    SourceTable = "jdi BingMaps Demo API Key";
 
-    Caption = 'Bing Maps SDK API Key Card';
+    Caption = 'Bing Maps SDK Demo API Key Card';
 
     layout
     {

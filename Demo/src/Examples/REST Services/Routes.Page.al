@@ -1,9 +1,9 @@
-page 50205 "jdi BingMaps Test Routes"
+page 50253 "jdi BingMaps Demo Routes"
 {
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    Caption = 'BingMaps SDK Test Routes (Manual)';
+    Caption = 'BingMaps SDK Demo Routes (Manual)';
 
 
     layout
@@ -57,9 +57,9 @@ page 50205 "jdi BingMaps Test Routes"
     }
     local procedure GetDefaultAPIKey(): Text
     var
-        BingMapsSDKTestSetup: Record "jdi BingMaps Test Setup";
+        BingMapsSDKDemoSetup: Record "jdi BingMaps Demo Setup";
     begin
-        if BingMapsSDKTestSetup.Get() then
-            exit(BingMapsSDKTestSetup.GetDefaultAPIKey());
+        if BingMapsSDKDemoSetup.Get() then
+            exit(BingMapsSDKDemoSetup.GetDefaultAPIKey());
     end;
 }

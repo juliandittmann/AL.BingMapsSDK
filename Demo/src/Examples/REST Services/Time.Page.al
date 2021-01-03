@@ -1,9 +1,9 @@
-page 50201 "jdi BingMaps Test Time"
+page 50254 "jdi BingMaps Demo Time"
 {
     PageType = Card;
     ApplicationArea = All;
     UsageCategory = Administration;
-    Caption = 'BingMaps SDK Test Time (Manual)';
+    Caption = 'BingMaps SDK Demo Time (Manual)';
 
     layout
     {
@@ -151,9 +151,9 @@ page 50201 "jdi BingMaps Test Time"
 
     local procedure GetDefaultAPIKey(): Text
     var
-        BingMapsSDKTestSetup: Record "jdi BingMaps Test Setup";
+        BingMapsSDKDemoSetup: Record "jdi BingMaps Demo Setup";
     begin
-        if BingMapsSDKTestSetup.Get() then
-            exit(BingMapsSDKTestSetup.GetDefaultAPIKey());
+        if BingMapsSDKDemoSetup.Get() then
+            exit(BingMapsSDKDemoSetup.GetDefaultAPIKey());
     end;
 }

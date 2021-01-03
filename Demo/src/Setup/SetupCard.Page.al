@@ -1,12 +1,12 @@
-page 50208 "jdi BingMaps Test Setup Card"
+page 50258 "jdi BingMaps Demo Setup Card"
 {
     PageType = Card;
     ApplicationArea = All;
 
-    Caption = 'Bing Maps SDK Test Setup';
+    Caption = 'Bing Maps SDK Demo Setup';
 
     UsageCategory = Administration;
-    SourceTable = "jdi BingMaps Test Setup";
+    SourceTable = "jdi BingMaps Demo Setup";
 
     layout
     {

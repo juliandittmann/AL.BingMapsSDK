@@ -1,4 +1,4 @@
-page 50203 "jdi BingMaps Test Autosuggest"
+page 50252 "jdi BingMaps Demo Autosuggest"
 {
     PageType = Card;
     ApplicationArea = All;
@@ -56,9 +56,9 @@ page 50203 "jdi BingMaps Test Autosuggest"
 
     local procedure GetDefaultAPIKey(): Text
     var
-        BingMapsSDKTestSetup: Record "jdi BingMaps Test Setup";
+        BingMapsSDKDemoSetup: Record "jdi BingMaps Demo Setup";
     begin
-        if BingMapsSDKTestSetup.Get() then
-            exit(BingMapsSDKTestSetup.GetDefaultAPIKey());
+        if BingMapsSDKDemoSetup.Get() then
+            exit(BingMapsSDKDemoSetup.GetDefaultAPIKey());
     end;
 }
