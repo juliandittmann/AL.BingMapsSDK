@@ -3,6 +3,16 @@
     "description": "These rules are ignored",
     "rules": [
         {
+            "id": "AS0051",
+            "action": "Hidden",
+            "justification": "This is a Test App"
+        },
+        {
+            "id": "AS0084",
+            "action": "Hidden",
+            "justification": "Objectrange in Test App does not matter"
+        },        
+        {
             "id": "AA0072",
             "action": "Hidden",
             "justification": "Variablenames are perfect. maybe later"

@@ -3,6 +3,16 @@
     "description": "These rules are ignored",
     "rules": [
         {
+            "id": "AS0051",
+            "action": "Hidden",
+            "justification": "App is not live"
+        },
+        {
+            "id": "AS0084",
+            "action": "Hidden",
+            "justification": "Objectrange in App does matter, but it is not live"
+        },   
+        {
             "id": "AA0072",
             "action": "Hidden",
             "justification": "Variablenames are perfect. maybe later"
