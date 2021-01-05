@@ -26,6 +26,8 @@ jobs:
         env:
           InsiderSasToken: ${{ secrets.InsiderSasToken }}
           LicenseFile: ${{ secrets.LicenseFile }}
+          CodeSignCertPfxFile: ${{ secrets.CodeSignCertPfxFile }}
+          CodeSignCertPfxPassword: ${{ secrets.CodeSignCertPfxPassword }}
         run: scripts\DevOps-Pipeline.ps1 -environment GitHubActions -version ${{env.version}} -appBuild ${{env.appBuild}} -appRevision ${{env.appRevision}}
 
       - name: Publish Test Results
