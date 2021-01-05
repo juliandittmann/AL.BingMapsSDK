@@ -28,6 +28,7 @@ $licenseFile = "$ENV:licenseFile"
 $codeSigncertPfxFile = "$ENV:CodeSignCertPfxFile"
 if (!$doNotSignApps -and $codeSigncertPfxFile) {
     if ("$ENV:CodeSignCertPfxPassword" -ne "") {
+        Write-Host "Test: CodeSignCertsAreSet"
         $codeSignCertPfxPassword = try { "$ENV:CodeSignCertPfxPassword" | ConvertTo-SecureString } catch { ConvertTo-SecureString -String "$ENV:CodeSignCertPfxPassword" -AsPlainText -Force }
         $params = @{
             "codeSignCertPfxFile" = $codeSignCertPfxFile
