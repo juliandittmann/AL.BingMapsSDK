@@ -14,10 +14,10 @@ codeunit 50015 "jdi BingMaps REST Helper"
         Result: Text;
     begin
         Clear(ResponseJObject);
-        if (Response.IsSuccessStatusCode()) then begin
-            Response.Content().ReadAs(Result);
-            exit(ResponseJObject.ReadFrom(Result));
-        end;
+        if Response.Content().ReadAs(Result) then
+            ResponseJObject.ReadFrom(Result);
+
+        exit(Response.IsSuccessStatusCode());
     end;
 
     procedure ProcessHttpResponseMessage(Response: HttpResponseMessage; var ResponseXml: XmlDocument): Boolean;
@@ -25,10 +25,9 @@ codeunit 50015 "jdi BingMaps REST Helper"
         InStr: InStream;
     begin
         Clear(ResponseXml);
-        if (Response.IsSuccessStatusCode()) then begin
-            Response.Content().ReadAs(InStr);
+        if (Response.Content().ReadAs(InStr)) then
+            XmlDocument.ReadFrom(InStr, ResponseXml);
 
-            exit(XmlDocument.ReadFrom(InStr, ResponseXml));
-        end;
+        exit(Response.IsSuccessStatusCode());
     end;
 }
