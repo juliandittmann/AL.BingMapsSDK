@@ -26,7 +26,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
         Assert.IsFalse(ElevationsAPI.GetElevationList(APIVersion::v1, Param, HttpResponse), 'BingMaps Rest API should not be StatusCode:200');
 
         //[Finally] Verify Bing Maps response StatusCode
-        Assert.AreEqual(HttpResponse.HttpStatusCode(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, HttpResponse.HttpStatusCode(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -53,7 +53,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(JResponse.Get('statusCode', StatusToken), 'JResponse should contain statusCode');
-        Assert.AreEqual(StatusToken.AsValue().AsInteger(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, StatusToken.AsValue().AsInteger(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -80,7 +80,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(XmlResponse.SelectSingleNode(GetNodeXPath('StatusCode'), StatusCodeNode), 'XmlResponse should contain StatusCode node');
-        Assert.AreEqual(StatusCodeNode.AsXmlElement().InnerText(), '401', 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual('401', StatusCodeNode.AsXmlElement().InnerText(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     local procedure CreateGetElevationListParam(var Param: Dictionary of [Enum "jdi BingMaps Parameter GetElevationList", Text])
@@ -115,7 +115,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
         Assert.IsFalse(ElevationsAPI.GetElevationBounds(APIVersion::v1, Param, HttpResponse), 'BingMaps Rest API should not be StatusCode:200');
 
         //[Finally] Verify Bing Maps response StatusCode
-        Assert.AreEqual(HttpResponse.HttpStatusCode(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, HttpResponse.HttpStatusCode(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -142,7 +142,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(JResponse.Get('statusCode', StatusToken), 'JResponse should contain statusCode');
-        Assert.AreEqual(StatusToken.AsValue().AsInteger(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, StatusToken.AsValue().AsInteger(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -169,7 +169,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(XmlResponse.SelectSingleNode(GetNodeXPath('StatusCode'), StatusCodeNode), 'XmlResponse should contain StatusCode node');
-        Assert.AreEqual(StatusCodeNode.AsXmlElement().InnerText(), '401', 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual('401', StatusCodeNode.AsXmlElement().InnerText(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     local procedure CreateGetElevationBoundsParam(var Param: Dictionary of [Enum "jdi BingMaps Parameter GetElevationBounds", Text])
@@ -206,7 +206,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
         Assert.IsFalse(ElevationsAPI.GetElevationPolyline(APIVersion::v1, Param, HttpResponse), 'BingMaps Rest API should not be StatusCode:200');
 
         //[Finally] Verify Bing Maps response StatusCode
-        Assert.AreEqual(HttpResponse.HttpStatusCode(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, HttpResponse.HttpStatusCode(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -233,7 +233,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(JResponse.Get('statusCode', StatusToken), 'JResponse should contain statusCode');
-        Assert.AreEqual(StatusToken.AsValue().AsInteger(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, StatusToken.AsValue().AsInteger(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -260,7 +260,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(XmlResponse.SelectSingleNode(GetNodeXPath('StatusCode'), StatusCodeNode), 'XmlResponse should contain StatusCode node');
-        Assert.AreEqual(StatusCodeNode.AsXmlElement().InnerText(), '401', 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual('401', StatusCodeNode.AsXmlElement().InnerText(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     local procedure CreateGetElevationPolylineParam(var Param: Dictionary of [Enum "jdi BingMaps Parameter GetElevationPolyline", Text])
@@ -297,7 +297,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
         Assert.IsFalse(ElevationsAPI.GetElevationSealevel(APIVersion::v1, Param, HttpResponse), 'BingMaps Rest API should not be StatusCode:200');
 
         //[Finally] Verify Bing Maps response StatusCode
-        Assert.AreEqual(HttpResponse.HttpStatusCode(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, HttpResponse.HttpStatusCode(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -324,7 +324,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(JResponse.Get('statusCode', StatusToken), 'JResponse should contain statusCode');
-        Assert.AreEqual(StatusToken.AsValue().AsInteger(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, StatusToken.AsValue().AsInteger(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -351,7 +351,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(XmlResponse.SelectSingleNode(GetNodeXPath('StatusCode'), StatusCodeNode), 'XmlResponse should contain StatusCode node');
-        Assert.AreEqual(StatusCodeNode.AsXmlElement().InnerText(), '401', 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual('401', StatusCodeNode.AsXmlElement().InnerText(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     local procedure CreateGetElevationSealevelParam(var Param: Dictionary of [Enum "jdi BingMaps Parameter GetElevationSealevel", Text])

@@ -26,7 +26,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
         Assert.IsFalse(TimeZoneAPI.FindTimeZone(APIVersion::v1, Param, HttpResponse), 'BingMaps Rest API should not be StatusCode:200');
 
         //[Finally] Verify Bing Maps response StatusCode
-        Assert.AreEqual(HttpResponse.HttpStatusCode(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, HttpResponse.HttpStatusCode(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -53,7 +53,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(JResponse.Get('statusCode', StatusToken), 'JResponse should contain statusCode');
-        Assert.AreEqual(StatusToken.AsValue().AsInteger(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, StatusToken.AsValue().AsInteger(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -80,7 +80,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(XmlResponse.SelectSingleNode(GetNodeXPath('StatusCode'), StatusCodeNode), 'XmlResponse should contain StatusCode node');
-        Assert.AreEqual(StatusCodeNode.AsXmlElement().InnerText(), '401', 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual('401', StatusCodeNode.AsXmlElement().InnerText(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     local procedure CreateFindTimeZoneParam(var Param: Dictionary of [Enum "jdi BingMaps Parameter FindTimeZone", Text])
@@ -115,7 +115,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
         Assert.IsFalse(TimeZoneAPI.ConvertTimeZone(APIVersion::v1, Param, HttpResponse), 'BingMaps Rest API should not be StatusCode:200');
 
         //[Finally] Verify Bing Maps response StatusCode
-        Assert.AreEqual(HttpResponse.HttpStatusCode(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, HttpResponse.HttpStatusCode(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -142,7 +142,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(JResponse.Get('statusCode', StatusToken), 'JResponse should contain statusCode');
-        Assert.AreEqual(StatusToken.AsValue().AsInteger(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, StatusToken.AsValue().AsInteger(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -169,7 +169,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(XmlResponse.SelectSingleNode(GetNodeXPath('StatusCode'), StatusCodeNode), 'XmlResponse should contain StatusCode node');
-        Assert.AreEqual(StatusCodeNode.AsXmlElement().InnerText(), '401', 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual('401', StatusCodeNode.AsXmlElement().InnerText(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     local procedure CreateConvertTimeZoneParam(var Param: Dictionary of [Enum "jdi BingMaps Parameter ConvertTimeZone", Text])
@@ -205,7 +205,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
         Assert.IsFalse(TimeZoneAPI.ListTimeZones(APIVersion::v1, Param, HttpResponse), 'BingMaps Rest API should not be StatusCode:200');
 
         //[Finally] Verify Bing Maps response StatusCode
-        Assert.AreEqual(HttpResponse.HttpStatusCode(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, HttpResponse.HttpStatusCode(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -232,7 +232,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(JResponse.Get('statusCode', StatusToken), 'JResponse should contain statusCode');
-        Assert.AreEqual(StatusToken.AsValue().AsInteger(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, StatusToken.AsValue().AsInteger(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -259,7 +259,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(XmlResponse.SelectSingleNode(GetNodeXPath('StatusCode'), StatusCodeNode), 'XmlResponse should contain StatusCode node');
-        Assert.AreEqual(StatusCodeNode.AsXmlElement().InnerText(), '401', 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual('401', StatusCodeNode.AsXmlElement().InnerText(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     local procedure CreateListTimeZonesParam(var Param: Dictionary of [Enum "jdi BingMaps Parameter ListTimeZones", Text])

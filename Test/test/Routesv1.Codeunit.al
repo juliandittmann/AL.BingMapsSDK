@@ -26,7 +26,7 @@ codeunit 50207 "jdi BingMaps Test Routes v1"
         Assert.IsFalse(RoutesAPI.CalculateRoute(APIVersion::v1, Param, HttpResponse), 'BingMaps Rest API should not be StatusCode:200');
 
         //[Finally] Verify Bing Maps response StatusCode
-        Assert.AreEqual(HttpResponse.HttpStatusCode(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, HttpResponse.HttpStatusCode(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -53,7 +53,7 @@ codeunit 50207 "jdi BingMaps Test Routes v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(JResponse.Get('statusCode', StatusToken), 'JResponse should contain statusCode');
-        Assert.AreEqual(StatusToken.AsValue().AsInteger(), 401, 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual(401, StatusToken.AsValue().AsInteger(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     [Test]
@@ -80,7 +80,7 @@ codeunit 50207 "jdi BingMaps Test Routes v1"
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(XmlResponse.SelectSingleNode(GetNodeXPath('StatusCode'), StatusCodeNode), 'XmlResponse should contain StatusCode node');
-        Assert.AreEqual(StatusCodeNode.AsXmlElement().InnerText(), '401', 'BingMaps Rest API should be StatusCode:401');
+        Assert.AreEqual('401', StatusCodeNode.AsXmlElement().InnerText(), 'BingMaps Rest API should be StatusCode:401');
     end;
 
     local procedure CreateCalculateRouteParam(var Param: Dictionary of [Enum "jdi BingMaps Parameter CalculateRoute", Text])
