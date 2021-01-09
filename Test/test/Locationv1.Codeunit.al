@@ -35,6 +35,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
         LocationsAPI: Codeunit "jdi BingMaps API Locations";
         JResponse: JsonObject;
         StatusToken: JsonToken;
+        test: Text;
 
         APIVersion: Enum "jdi BingMaps API FindLocationByPoint";
         Param: Dictionary of [Enum "jdi BingMaps Parameter FindLocationByPoint", Text];
@@ -49,7 +50,11 @@ codeunit 50203 "jdi BingMaps Test Location v1"
         CreateFindLocationByPointParam(Param);
 
         //[Then] Verify Bing Maps response  
-        Assert.IsFalse(LocationsAPI.FindLocationByPoint(APIVersion::v1, Param, JResponse), 'BingMaps Rest API should not be StatusCode:200');
+        //Assert.IsFalse(LocationsAPI.FindLocationByPoint(APIVersion::v1, Param, JResponse), 'BingMaps Rest API should not be StatusCode:200');
+        LocationsAPI.FindLocationByPoint(APIVersion::v1, Param, JResponse);
+        JResponse.WriteTo(test);
+        Error(test);
+
 
         //[Finally] Verify Bing Maps response StatusCode
         Assert.IsTrue(JResponse.Get('statusCode', StatusToken), 'JResponse should contain statusCode');
