@@ -1,5 +1,6 @@
 codeunit 50009 "jdi BingMaps App Mgt."
 {
+    Access = Public;
 
     /// <summary>
     /// Gets the AppId of Bing Maps SDK
