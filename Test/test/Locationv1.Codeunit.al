@@ -15,6 +15,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindLocationByPoint using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -41,6 +42,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindLocationByPoint using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -68,6 +70,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindLocationByPoint using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -107,6 +110,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindLocationByQuery using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -133,6 +137,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindLocationByQuery using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -160,6 +165,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindLocationByQuery using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -202,6 +208,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-LocationRecognition using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -228,6 +235,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-LocationRecognition using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -255,6 +263,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-LocationRecognition using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -293,6 +302,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-LocalSearch using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -319,6 +329,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-LocalSearch using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -346,6 +357,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-LocalSearch using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -385,6 +397,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindLocationByAddress using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -411,6 +424,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindLocationByAddress using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -438,6 +452,7 @@ codeunit 50203 "jdi BingMaps Test Location v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindLocationByAddress using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();

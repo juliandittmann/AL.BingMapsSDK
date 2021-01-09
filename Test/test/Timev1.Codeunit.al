@@ -15,6 +15,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindTimeZone using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -41,6 +42,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindTimeZone using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -68,6 +70,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-FindTimeZone using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -104,6 +107,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-ConvertTimeZone using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -130,6 +134,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-ConvertTimeZone using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -157,6 +162,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-ConvertTimeZone using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -194,6 +200,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-ListTimeZones using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -220,6 +227,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-ListTimeZones using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -247,6 +255,7 @@ codeunit 50206 "jdi BingMaps Test Time v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-ListTimeZones using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();

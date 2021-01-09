@@ -15,6 +15,7 @@ codeunit 50207 "jdi BingMaps Test Routes v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-CalculateRoute using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -41,6 +42,7 @@ codeunit 50207 "jdi BingMaps Test Routes v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-CalculateRoute using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -68,6 +70,7 @@ codeunit 50207 "jdi BingMaps Test Routes v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-CalculateRoute using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();

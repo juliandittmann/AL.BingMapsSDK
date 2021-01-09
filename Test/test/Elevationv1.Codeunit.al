@@ -15,6 +15,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationList using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -41,6 +42,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationList using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -68,6 +70,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationList using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -104,6 +107,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationBounds using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -130,6 +134,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationBounds using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -157,6 +162,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationBounds using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -195,6 +201,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationPolyline using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -221,6 +228,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationPolyline using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -248,6 +256,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationPolyline using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -286,6 +295,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationSealevel using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -312,6 +322,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationSealevel using the JsonObject overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
@@ -339,6 +350,7 @@ codeunit 50208 "jdi BingMaps Test Elevation v1"
     begin
         // [Scenario] Invoke an invalid webserviceCall to BingMaps-GetElevationSealevel using the HttpResponse overload
         // [Given]  O365BusFull Permissions
+        Inizialize();
 
         //Using permissions that do not include SUPER
         LibraryLowerPermissions.SetO365BusFull();
