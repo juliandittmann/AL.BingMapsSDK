@@ -6,7 +6,7 @@
     "appFolders": "App",
     "testFolders": "Test,Demo",
     "installTestFramework": true,
-    "installTestLibraries": false,
+    "installTestLibraries": true,
     "installPerformanceToolkit": false,
     "doNotSignApps": false,
     "enableCodeCop": false,
