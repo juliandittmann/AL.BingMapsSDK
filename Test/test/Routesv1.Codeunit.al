@@ -105,10 +105,11 @@ codeunit 50207 "jdi BingMaps Test Routes v1"
     var
         BingMapsMgt: Codeunit "jdi BingMaps App Mgt.";
     begin
-        if not Initialized then begin
-            Initialized := true;
-            BingMapsMgt.EnableWebserviceCallsInSandbox();
-        end;
+        if IsInitialized then
+            exit;
+
+        BingMapsMgt.EnableWebserviceCallsInSandbox();
+        IsInitialized := true;
     end;
 
     procedure GetNodeXPath(NodeName: Text): Text
@@ -120,5 +121,5 @@ codeunit 50207 "jdi BingMaps Test Routes v1"
         Assert: Codeunit "Library Assert";
         LibraryLowerPermissions: Codeunit "Library - Lower Permissions";
         InvalidBingMapsAPIKey: Label 'xxxx-xxxx-xxxx-xxxxx', Locked = true;
-        Initialized: Boolean;
+        IsInitialized: Boolean;
 }
