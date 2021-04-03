@@ -7,7 +7,7 @@ on:
 
 env:
   version: nextmajor
-  appVersion: '17.0'
+  appVersion: '18.0'
   appBuild: 2147483647
   appRevision: 0
 
