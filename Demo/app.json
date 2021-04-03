@@ -4,7 +4,7 @@
   "publisher": "Julian Dittmann",
   "brief": "Demo for BingMaps SDK",
   "description": "Demo with examples for BingMaps SDK",
-  "version": "17.0.0.0",
+  "version": "18.0.0.0",
   "privacyStatement": "",
   "EULA": "",
   "help": "",
@@ -14,14 +14,14 @@
     {
       "name": "Bing Maps SDK",
       "publisher": "Julian Dittmann",
-      "version": "17.0.0.0",
+      "version": "18.0.0.0",
       "id": "ccafac8a-f110-47e2-9b7a-c82fc525c932"
     }
   ],
   "screenshots": [],
-  "application": "17.0.0.0",
-  "platform": "17.0.0.0",
-  "runtime": "6.0",
+  "application": "18.0.0.0",
+  "platform": "18.0.0.0",
+  "runtime": "7.0",
   "target": "Cloud",
   "showMyCode": true,
   "idRanges":[
