@@ -4,7 +4,7 @@
   "publisher": "Julian Dittmann",
   "brief": "Testtool for BingMaps SDK",
   "description": "Template Test",
-  "version": "17.0.0.0",
+  "version": "18.0.0.0",
   "privacyStatement": "",
   "EULA": "",
   "help": "",
@@ -15,24 +15,24 @@
       "id": "dd0be2ea-f733-4d65-bb34-a28f4624fb14",
       "publisher": "Microsoft",
       "name": "Library Assert",
-      "version": "17.0.0.0"
+      "version": "18.0.0.0"
     },
     {
       "id": "e7320ebb-08b3-4406-b1ec-b4927d3e280b",
       "publisher": "Microsoft",
       "name": "Any",
-      "version": "17.0.0.0"
+      "version": "18.0.0.0"
     },
     {
       "id": "5d86850b-0d76-4eca-bd7b-951ad998e997",
       "publisher": "Microsoft",
       "name": "Tests-TestLibraries",
-      "version": "17.0.0.0"
+      "version": "18.0.0.0"
     },
     {
       "name": "Test Runner",
       "publisher": "Microsoft",
-      "version": "17.0.0.0",
+      "version": "18.0.0.0",
       "id": "23de40a6-dfe8-4f80-80db-d70f83ce8caf"
     },
     {
