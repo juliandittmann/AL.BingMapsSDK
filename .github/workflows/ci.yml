@@ -30,6 +30,7 @@ jobs:
           LicenseFile: ${{ secrets.LicenseFile }}
           CodeSignCertPfxFile: ${{ secrets.CodeSignCertPfxFile }}
           CodeSignCertPfxPassword: ${{ secrets.CodeSignCertPfxPassword }}
+          ApplicationInsightsKey: ${{ secrets.ApplicationInsightsKey }}
         run: scripts\DevOps-Pipeline.ps1 -environment GitHubActions -version ${{env.version}} -appBuild ${{env.appBuild}} -appRevision ${{env.appRevision}}
 
       - name: Save manifest
