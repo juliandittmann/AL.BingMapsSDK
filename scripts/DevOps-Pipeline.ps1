@@ -39,6 +39,11 @@ if (!$doNotSignApps -and $codeSigncertPfxFile) {
     }
 }
 
+if ("$ENV:ApplicationInsightsKey" -ne "") {
+    $applicationInsightKey = "$ENV:ApplicationInsightsKey"
+    $params.Add("applicationInsightsKey",$applicationInsightKey)
+}
+
 $allTestResults = "testresults*.xml"
 $testResultsFile = Join-Path $baseFolder "TestResults.xml"
 $testResultsFiles = Join-Path $baseFolder $allTestResults
