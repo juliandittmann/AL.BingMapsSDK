@@ -30,6 +30,7 @@ jobs:
           appBuild: ${{env.appBuild}}
           appRevision: ${{env.appRevision}}
           InsiderSasToken: ${{ secrets.InsiderSasToken }}
+          LicenseFile: ${{ secrets.LicenseFile }}
           CodeSignCertPfxFile: ${{ secrets.CodeSignCertPfxFile }}
           CodeSignCertPfxPassword: ${{ secrets.CodeSignCertPfxPassword }}
           ApplicationInsightsKey: ${{ secrets.ApplicationInsightsKey }}
