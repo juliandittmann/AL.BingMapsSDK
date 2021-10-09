@@ -1,4 +1,4 @@
-permissionset 50000 "BING MAPS SDK"
+permissionset 50000 "jdi BingMaps SDK"
 {
     Access = Public;
     Assignable = true;

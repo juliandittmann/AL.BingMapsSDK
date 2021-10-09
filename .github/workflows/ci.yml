@@ -9,7 +9,7 @@ on:
 
 env:
   version: ci
-  appVersion: '18.0'
+  appVersion: '19.0'
   appBuild: ${{github.run_number}}
   appRevision: 0
 
@@ -45,7 +45,6 @@ jobs:
           appRevision: ${{env.appRevision}}
           ApplicationInsightsKey: ${{ secrets.ApplicationInsightsKey }}
           InsiderSasToken: ${{ steps.azureGetSecretAction.outputs.InsiderSasToken }}
-          LicenseFile: ${{ steps.azureGetSecretAction.outputs.LicenseFile }}
           CodeSignCertPfxFile: ${{ steps.azureGetSecretAction.outputs.CodeSignCertPfxFile }}
           CodeSignCertPfxPassword: ${{ steps.azureGetSecretAction.outputs.CodeSignCertPfxPassword }}
 
