@@ -16,6 +16,16 @@
             "id": "AA0072",
             "action": "Hidden",
             "justification": "Variablenames are perfect. maybe later"
+        },
+        {
+            "id": "AL0659",
+            "action": "Hidden",
+            "justification": "Enums have to be renamed soon"
+        },
+        {
+            "id": "AS0092",
+            "action": "Hidden",
+            "justification": "Application Insights is set in pipeline"
         }
     ]
 }

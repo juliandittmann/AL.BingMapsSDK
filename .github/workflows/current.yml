@@ -7,7 +7,7 @@ on:
 
 env:
   version: current
-  appVersion: '18.0'
+  appVersion: '19.0'
   appBuild: 2147483647
   appRevision: 0
 
@@ -31,7 +31,7 @@ jobs:
         uses: Azure/get-keyvault-secrets@v1.2
         with:
           keyvault: "juliandittmann"
-          secrets: 'CodeSignCertPfxFile, CodeSignCertPfxPassword, InsiderSasToken, LicenseFile'
+          secrets: 'CodeSignCertPfxFile, CodeSignCertPfxPassword, InsiderSasToken'
         id: azureGetSecretAction
 
       - name: Run pipeline
@@ -43,7 +43,6 @@ jobs:
           appRevision: ${{env.appRevision}}
           ApplicationInsightsKey: ${{ secrets.ApplicationInsightsKey }}
           InsiderSasToken: ${{ steps.azureGetSecretAction.outputs.InsiderSasToken }}
-          LicenseFile: ${{ steps.azureGetSecretAction.outputs.LicenseFile }}
           CodeSignCertPfxFile: ${{ steps.azureGetSecretAction.outputs.CodeSignCertPfxFile }}
           CodeSignCertPfxPassword: ${{ steps.azureGetSecretAction.outputs.CodeSignCertPfxPassword }}
 
