@@ -12,7 +12,8 @@ codeunit 50020 "jdi BingMaps Autosuggest v1" implements "jdi BingMaps IAutosugge
         UriBuilder.Init(BaseUriLbl);
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
-        exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
+        RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse);
+        exit(HttpResponse.IsSuccessStatusCode());
     end;
 
     procedure Autosuggest(Parameter: Dictionary of [enum "jdi BingMaps Parameter Autosuggest", Text]; var JsonResponse: JsonObject): Boolean;

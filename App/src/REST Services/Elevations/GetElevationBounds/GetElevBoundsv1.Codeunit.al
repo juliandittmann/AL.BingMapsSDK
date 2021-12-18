@@ -12,7 +12,8 @@ codeunit 50023 "jdi BingMaps GetElev.Bounds v1" implements "jdi BingMaps IGetEle
         UriBuilder.Init(BaseUriLbl);
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
-        exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
+        RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse);
+        exit(HttpResponse.IsSuccessStatusCode());
     end;
 
     procedure GetElevationBounds(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetElevationBounds", Text]; var JsonResponse: JsonObject): Boolean;

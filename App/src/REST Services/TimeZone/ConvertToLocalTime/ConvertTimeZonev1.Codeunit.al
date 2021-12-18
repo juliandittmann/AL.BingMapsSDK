@@ -13,7 +13,8 @@ codeunit 50012 "jdi BingMaps ConvertTimeZonev1" implements "jdi BingMaps IConver
         UriBuilder.Init(BaseUriLbl);
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
-        exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
+        RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse);
+        exit(HttpResponse.IsSuccessStatusCode());
     end;
 
     procedure ConvertTimeZone(Parameter: Dictionary of [enum "jdi BingMaps Parameter ConvertTimeZone", Text]; var JsonResponse: JsonObject): Boolean;

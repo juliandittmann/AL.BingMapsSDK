@@ -10,7 +10,8 @@ codeunit 50017 "jdi BingMaps LocRecognition v1" implements "jdi BingMaps ILocati
         UriBuilder.Init(BuildBaseUrl(Parameter));
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
-        exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
+        RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse);
+        exit(HttpResponse.IsSuccessStatusCode());
     end;
 
     procedure LocationRecognition(Parameter: Dictionary of [enum "jdi BingMaps Parameter LocationRecognition", Text]; var JsonResponse: JsonObject): Boolean;

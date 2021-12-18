@@ -13,7 +13,8 @@ codeunit 50018 "jdi BingMaps LocalSearch v1" implements "jdi BingMaps ILocalSear
         UriBuilder.Init(BaseUriLbl);
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
-        exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
+        RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse);
+        exit(HttpResponse.IsSuccessStatusCode());
     end;
 
     procedure LocalSearch(Parameter: Dictionary of [enum "jdi BingMaps Parameter LocalSearch", Text]; var JsonResponse: JsonObject): Boolean;
