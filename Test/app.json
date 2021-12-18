@@ -4,7 +4,7 @@
   "publisher": "Julian Dittmann",
   "brief": "Testtool for BingMaps SDK",
   "description": "Template Test",
-  "version": "19.0.0.0",
+  "version": "19.1.0.0",
   "privacyStatement": "",
   "EULA": "",
   "help": "",
@@ -38,14 +38,14 @@
     {
       "name": "Bing Maps SDK",
       "publisher": "Julian Dittmann",
-      "version": "19.0.0.0",
+      "version": "19.1.0.0",
       "id": "ccafac8a-f110-47e2-9b7a-c82fc525c932"
     }
   ],
   "screenshots": [],
   "application": "19.0.0.0",
   "platform": "19.0.0.0",
-  "runtime": "8.0",
+  "runtime": "8.1",
   "target": "Cloud",
   "resourceExposurePolicy": {
     "allowDebugging": true,
