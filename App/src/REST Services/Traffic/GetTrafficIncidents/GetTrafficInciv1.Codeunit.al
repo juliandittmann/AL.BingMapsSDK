@@ -11,7 +11,8 @@ codeunit 50021 "jdi BingMaps GetTrafficInci v1" implements "jdi BingMaps IGetTra
         UriBuilder.Init(BuildBaseUrl(Parameter));
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
-        exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
+        RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse);
+        exit(HttpResponse.IsSuccessStatusCode());
     end;
 
     procedure GetTrafficIncidents(Parameter: Dictionary of [enum "jdi BingMaps Parameter GetTrafficIncidents", Text]; var JsonResponse: JsonObject): Boolean;

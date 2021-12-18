@@ -13,7 +13,8 @@ codeunit 50016 "jdi BingMaps FindLocByQuery v1" implements "jdi BingMaps IFindLo
         UriBuilder.Init(BaseUriLbl);
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
-        exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
+        RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse);
+        exit(HttpResponse.IsSuccessStatusCode());
     end;
 
 

@@ -11,7 +11,8 @@ codeunit 50013 "jdi BingMaps ListTimeZones v1" implements "jdi BingMaps IListTim
         UriBuilder.Init(BuildBaseUrl(Parameter));
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
-        exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
+        RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse);
+        exit(HttpResponse.IsSuccessStatusCode());
     end;
 
     procedure ListTimeZones(Parameter: Dictionary of [enum "jdi BingMaps Parameter ListTimeZones", Text]; var JsonResponse: JsonObject): Boolean;

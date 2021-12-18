@@ -10,7 +10,8 @@ codeunit 50011 "jdi BingMaps FindTimeZone v1" implements "jdi BingMaps IFindTime
         UriBuilder.Init(BuildBaseUrl(Parameter));
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
-        exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
+        RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse);
+        exit(HttpResponse.IsSuccessStatusCode());
     end;
 
     procedure FindTimeZone(Parameter: Dictionary of [enum "jdi BingMaps Parameter FindTimeZone", Text]; var JsonResponse: JsonObject): Boolean;

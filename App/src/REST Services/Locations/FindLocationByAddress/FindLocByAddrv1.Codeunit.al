@@ -13,7 +13,8 @@ codeunit 50019 "jdi BingMaps FindLocByAddr v1" implements "jdi BingMaps IFindLoc
         UriBuilder.Init(BaseUriLbl);
         UriBuilder.SetQuery(GetQueryString(Parameter));
         UriBuilder.GetUri(Uri);
-        exit(RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse));
+        RESTHelper.InvokeWebRequest(Uri.GetAbsoluteUri(), HttpResponse);
+        exit(HttpResponse.IsSuccessStatusCode());
     end;
 
     procedure FindLocationByAddress(Parameter: Dictionary of [enum "jdi BingMaps Parameter FindLocationByAddress", Text]; var JsonResponse: JsonObject): Boolean;
